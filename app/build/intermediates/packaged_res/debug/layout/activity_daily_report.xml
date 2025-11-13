@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/daily_report"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Work Done Today"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etWorkDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Describe work completed today"
+            android:inputType="textMultiLine"
+            android:minLines="5"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Challenges Faced"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etChallenges"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Describe any challenges"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next Day Plan"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etNextDayPlan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Plan for tomorrow"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:layout_marginBottom="24dp"
+            android:padding="16dp" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:padding="16dp" />
+
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
+
+
+

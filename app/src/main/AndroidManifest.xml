@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.UnifiedHRSystem"
+        tools:targetApi="31">
+        
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.UnifiedHRSystem">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".ui.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AdminDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ManagerDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.EmployeeDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AttendanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.TaskManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.RecruitmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.LeaveRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ExpenseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.DocumentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PerformanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ManagerManagementActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.TeamManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.JobSeekerDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.JobDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MessagingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ApplicantsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.OfficeLocationActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.AdminDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.AdminDashboardActivity" />
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+
+    </application>
+
+</manifest>
+
+
+

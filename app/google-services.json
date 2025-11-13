@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "408778640171",
+    "project_id": "unified-hr-system",
+    "storage_bucket": "unified-hr-system.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408778640171:android:41085d2bc5a547ad3a936e",
+        "android_client_info": {
+          "package_name": "com.unifiedhr.system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeyEYo6DT6r0ghsaIk-aAtaXksDD5TBjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+
+
+
+
+
+

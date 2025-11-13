@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Unified HR System</string>
+    
+    <!-- Common -->
+    <string name="welcome">Welcome</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="add">Add</string>
+    <string name="loading">Loading...</string>
+    
+    <!-- Roles -->
+    <string name="admin">Admin</string>
+    <string name="manager">Manager</string>
+    <string name="employee">Employee</string>
+    <string name="recruiter">Recruiter</string>
+    
+    <!-- Dashboard -->
+    <string name="dashboard">Dashboard</string>
+    <string name="attendance">Attendance</string>
+    <string name="tasks">Tasks</string>
+    <string name="performance">Performance</string>
+    <string name="recruitment">Recruitment</string>
+    <string name="leave_requests">Leave Requests</string>
+    <string name="expenses">Expenses</string>
+    <string name="documents">Documents</string>
+    <string name="team">Team</string>
+    
+    <!-- Attendance -->
+    <string name="mark_attendance">Mark Attendance</string>
+    <string name="attendance_marked">Attendance Marked</string>
+    <string name="check_in">Check In</string>
+    <string name="check_out">Check Out</string>
+    <string name="check_in_office">Check In (Office)</string>
+    <string name="check_out_office">Check Out (Office)</string>
+    <string name="check_in_wfh">Check In (WFH)</string>
+    <string name="check_out_wfh">Check Out (WFH)</string>
+    <string name="heading_work_from_office">Work From Office</string>
+    <string name="heading_work_from_home">Work From Home</string>
+    <string name="status_not_checked_in">Not checked in</string>
+    <string name="status_checked_in_office">Checked In (Office)</string>
+    <string name="status_checked_in_wfh">Checked In (WFH)</string>
+    <string name="status_checked_out_office">Checked Out (Office)</string>
+    <string name="status_checked_out_wfh">Checked Out (WFH)</string>
+    <string name="location_not_available">Location not available</string>
+    <string name="toast_already_checked_in">Attendance already captured for today.</string>
+    <string name="toast_office_checkin_required">Please check in (Office) before checking out.</string>
+    <string name="toast_wfh_checkin_required">Please check in (WFH) before checking out.</string>
+    <string name="toast_checkin_success_office">Checked in successfully (Office)</string>
+    <string name="toast_checkin_success_wfh">Checked in successfully (WFH)</string>
+    <string name="toast_attendance_failed">Failed to mark attendance. Try again.</string>
+    <string name="toast_checkout_success_office">Checked out successfully (Office)</string>
+    <string name="toast_checkout_success_wfh">Checked out successfully (WFH)</string>
+    <string name="toast_checkout_failed">Failed to update checkout. Try again.</string>
+    <string name="dialog_title_office_check_in">Enter office check-in location</string>
+    <string name="dialog_title_office_check_out">Enter office checkout location</string>
+    <string name="dialog_title_wfh_check_in">Enter WFH location</string>
+    <string name="dialog_title_wfh_check_out">Confirm WFH checkout location</string>
+    <string name="dialog_hint_location">Enter location details</string>
+    <string name="dialog_helper_location">Include address, landmark, or coordinates to confirm attendance location.</string>
+    <string name="error_location_required">Location is required</string>
+    <string name="label_office_location">Office location</string>
+    <string name="label_office_checkout_location">Office checkout location</string>
+    <string name="label_wfh_location">WFH location</string>
+    <string name="label_wfh_checkout_location">WFH checkout location</string>
+    <string name="title_office_location">Office Location</string>
+    <string name="description_office_location">Set the primary office location and accepted radius. Employees must be within this radius to mark Work From Office attendance.</string>
+    <string name="hint_latitude">Latitude</string>
+    <string name="hint_longitude">Longitude</string>
+    <string name="hint_radius">Radius in meters (50 - 2000)</string>
+    <string name="label_address_unknown">Address preview unavailable</string>
+    <string name="action_use_current_location">Use current location</string>
+    <string name="action_save_location">Save office geofence</string>
+    <string name="toast_office_location_saved">Office location updated</string>
+    <string name="error_latitude_required">Latitude is required</string>
+    <string name="error_longitude_required">Longitude is required</string>
+    <string name="error_radius_required">Radius is required</string>
+    <string name="error_radius_too_small">Radius must be at least 50 meters</string>
+    <string name="error_radius_too_large">Radius must be below 2000 meters</string>
+    <string name="error_invalid_coordinates">Please enter valid coordinates</string>
+    <string name="error_location_unavailable">Unable to fetch location. Try again.</string>
+    <string name="error_permission_required">Location permission required to get current location.</string>
+    <string name="error_company_not_found">Company information unavailable.</string>
+    <string name="menu_set_office_location">Office location</string>
+    <string name="daily_report">Daily Report</string>
+    <string name="error_office_location_not_set">Office location is not configured. Please ask the admin to set it before checking in.</string>
+    <string name="error_outside_office_radius">You are outside the allowed office radius. Move closer to the office before checking in.</string>
+    <string name="error_outside_office_radius_checkout">You must be near the office to check out in Work From Office mode.</string>
+    <string name="error_location_unavailable_office">Unable to determine your location. Turn on GPS and try again.</string>
+    
+    <!-- Tasks -->
+    <string name="create_task">Create Task</string>
+    <string name="task_title">Task Title</string>
+    <string name="task_description">Description</string>
+    <string name="assign_to">Assign To</string>
+    <string name="deadline">Deadline</string>
+    <string name="status">Status</string>
+    <string name="pending">Pending</string>
+    <string name="in_progress">In Progress</string>
+    <string name="completed">Completed</string>
+    
+    <!-- Recruitment -->
+    <string name="create_job">Create Job</string>
+    <string name="job_title">Job Title</string>
+    <string name="job_description">Job Description</string>
+    <string name="applicants">Applicants</string>
+    <string name="convert_to_employee">Convert to Employee</string>
+    
+    <!-- Performance -->
+    <string name="scorecard">Scorecard</string>
+    <string name="attendance_percentage">Attendance %</string>
+    <string name="completion_percentage">Completion %</string>
+    <string name="rating">Rating</string>
+    <string name="leaderboard">Leaderboard</string>
+    
+    <!-- Leave -->
+    <string name="apply_leave">Apply Leave</string>
+    <string name="leave_type">Leave Type</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="reason">Reason</string>
+    
+    <!-- Expenses -->
+    <string name="submit_expense">Submit Expense</string>
+    <string name="expense_type">Expense Type</string>
+    <string name="amount">Amount</string>
+    <string name="receipt">Receipt</string>
+</resources>
+
+
+
+
+

@@ -1,0 +1,459 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.unifiedhr.system"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+13-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:7:5-79
+13-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+14-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:8:5-81
+14-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:8:22-78
+15    <uses-permission android:name="android.permission.CAMERA" />
+15-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:9:5-65
+15-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:9:22-62
+16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+16-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:10:5-80
+16-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:10:22-77
+17    <uses-permission
+17-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:11:5-12:38
+18        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+18-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:11:22-78
+19        android:maxSdkVersion="28" />
+19-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:12:9-35
+20
+21    <uses-feature
+21-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:13:5-85
+22        android:name="android.hardware.camera"
+22-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:13:19-57
+23        android:required="false" />
+23-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:13:58-82
+24    <uses-feature
+24-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\4804a6fa0645a642b4a30d0f5736bbb9\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:26:5-28:35
+25        android:glEsVersion="0x00020000"
+25-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\4804a6fa0645a642b4a30d0f5736bbb9\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:27:9-41
+26        android:required="true" />
+26-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\4804a6fa0645a642b4a30d0f5736bbb9\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:28:9-32
+27
+28    <queries>
+28-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\4804a6fa0645a642b4a30d0f5736bbb9\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:30:5-34:15
+29
+30        <!-- Needs to be explicitly declared on Android R+ -->
+31        <package android:name="com.google.android.apps.maps" />
+31-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\4804a6fa0645a642b4a30d0f5736bbb9\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:33:9-64
+31-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\4804a6fa0645a642b4a30d0f5736bbb9\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:33:18-61
+32    </queries>
+33
+34    <uses-feature
+34-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
+35        android:name="android.hardware.camera.front"
+35-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:29:9-53
+36        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+36-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:30:9-33
+37    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+38    <uses-feature
+38-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:33:5-35:36
+39        android:name="android.hardware.camera.autofocus"
+39-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:34:9-57
+40        android:required="false" />
+40-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:35:9-33
+41    <uses-feature
+41-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:36:5-38:36
+42        android:name="android.hardware.camera.flash"
+42-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:37:9-53
+43        android:required="false" />
+43-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:38:9-33
+44    <uses-feature
+44-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:39:5-41:36
+45        android:name="android.hardware.screen.landscape"
+45-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:40:9-57
+46        android:required="false" />
+46-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:41:9-33
+47    <uses-feature
+47-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:42:5-44:36
+48        android:name="android.hardware.wifi"
+48-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:43:9-45
+49        android:required="false" />
+49-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:44:9-33
+50
+51    <permission
+51-->[androidx.core:core:1.9.0] C:\Users\thoka\.gradle\caches\transforms-3\01c092083f2f83009cf2ee5896f24852\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+52        android:name="com.unifiedhr.system.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+52-->[androidx.core:core:1.9.0] C:\Users\thoka\.gradle\caches\transforms-3\01c092083f2f83009cf2ee5896f24852\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+53        android:protectionLevel="signature" />
+53-->[androidx.core:core:1.9.0] C:\Users\thoka\.gradle\caches\transforms-3\01c092083f2f83009cf2ee5896f24852\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+54
+55    <uses-permission android:name="com.unifiedhr.system.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+55-->[androidx.core:core:1.9.0] C:\Users\thoka\.gradle\caches\transforms-3\01c092083f2f83009cf2ee5896f24852\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+55-->[androidx.core:core:1.9.0] C:\Users\thoka\.gradle\caches\transforms-3\01c092083f2f83009cf2ee5896f24852\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+56
+57    <application
+57-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:16:5-110:19
+58        android:allowBackup="true"
+58-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:17:9-35
+59        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+59-->[androidx.core:core:1.9.0] C:\Users\thoka\.gradle\caches\transforms-3\01c092083f2f83009cf2ee5896f24852\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+60        android:debuggable="true"
+61        android:extractNativeLibs="false"
+62        android:icon="@mipmap/ic_launcher"
+62-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:18:9-43
+63        android:label="@string/app_name"
+63-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:19:9-41
+64        android:roundIcon="@mipmap/ic_launcher_round"
+64-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:20:9-54
+65        android:supportsRtl="true"
+65-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:21:9-35
+66        android:testOnly="true"
+67        android:theme="@style/Theme.UnifiedHRSystem" >
+67-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:22:9-53
+68        <activity
+68-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:25:9-33:20
+69            android:name="com.unifiedhr.system.ui.SplashActivity"
+69-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:26:13-46
+70            android:exported="true"
+70-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:27:13-36
+71            android:theme="@style/Theme.UnifiedHRSystem" >
+71-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:28:13-57
+72            <intent-filter>
+72-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:29:13-32:29
+73                <action android:name="android.intent.action.MAIN" />
+73-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:30:17-69
+73-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:30:25-66
+74
+75                <category android:name="android.intent.category.LAUNCHER" />
+75-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:31:17-77
+75-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:31:27-74
+76            </intent-filter>
+77        </activity>
+78        <activity
+78-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:35:9-37:40
+79            android:name="com.unifiedhr.system.ui.LoginActivity"
+79-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:36:13-45
+80            android:exported="false" />
+80-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:37:13-37
+81        <activity
+81-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:38:9-40:40
+82            android:name="com.unifiedhr.system.ui.AdminDashboardActivity"
+82-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:39:13-54
+83            android:exported="false" />
+83-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:40:13-37
+84        <activity
+84-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:41:9-43:40
+85            android:name="com.unifiedhr.system.ui.ManagerDashboardActivity"
+85-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:42:13-56
+86            android:exported="false" />
+86-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:43:13-37
+87        <activity
+87-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:44:9-46:40
+88            android:name="com.unifiedhr.system.ui.EmployeeDashboardActivity"
+88-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:45:13-57
+89            android:exported="false" />
+89-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:46:13-37
+90        <activity
+90-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:47:9-49:40
+91            android:name="com.unifiedhr.system.ui.AttendanceActivity"
+91-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:48:13-50
+92            android:exported="false" />
+92-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:49:13-37
+93        <activity
+93-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:50:9-52:40
+94            android:name="com.unifiedhr.system.ui.TaskManagementActivity"
+94-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:51:13-54
+95            android:exported="false" />
+95-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:52:13-37
+96        <activity
+96-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:53:9-55:40
+97            android:name="com.unifiedhr.system.ui.RecruitmentActivity"
+97-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:54:13-51
+98            android:exported="false" />
+98-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:55:13-37
+99        <activity
+99-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:56:9-58:40
+100            android:name="com.unifiedhr.system.ui.LeaveRequestActivity"
+100-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:57:13-52
+101            android:exported="false" />
+101-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:58:13-37
+102        <activity
+102-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:59:9-61:40
+103            android:name="com.unifiedhr.system.ui.ExpenseActivity"
+103-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:60:13-47
+104            android:exported="false" />
+104-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:61:13-37
+105        <activity
+105-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:62:9-64:40
+106            android:name="com.unifiedhr.system.ui.DocumentsActivity"
+106-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:63:13-49
+107            android:exported="false" />
+107-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:64:13-37
+108        <activity
+108-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:65:9-67:40
+109            android:name="com.unifiedhr.system.ui.PerformanceActivity"
+109-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:66:13-51
+110            android:exported="false" />
+110-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:67:13-37
+111        <activity
+111-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:68:9-70:40
+112            android:name="com.unifiedhr.system.ui.ManagerManagementActivity"
+112-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:69:13-57
+113            android:exported="false" />
+113-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:70:13-37
+114        <activity
+114-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:72:9-74:40
+115            android:name="com.unifiedhr.system.ui.TeamManagementActivity"
+115-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:73:13-54
+116            android:exported="false" />
+116-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:74:13-37
+117        <activity
+117-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:75:9-77:40
+118            android:name="com.unifiedhr.system.ui.JobSeekerDashboardActivity"
+118-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:76:13-58
+119            android:exported="false" />
+119-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:77:13-37
+120        <activity
+120-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:78:9-80:40
+121            android:name="com.unifiedhr.system.ui.JobDetailActivity"
+121-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:79:13-49
+122            android:exported="false" />
+122-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:80:13-37
+123        <activity
+123-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:81:9-83:40
+124            android:name="com.unifiedhr.system.ui.MessagingActivity"
+124-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:82:13-49
+125            android:exported="false" />
+125-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:83:13-37
+126        <activity
+126-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:84:9-86:40
+127            android:name="com.unifiedhr.system.ui.ApplicantsActivity"
+127-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:85:13-50
+128            android:exported="false" />
+128-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:86:13-37
+129        <activity
+129-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:87:9-94:20
+130            android:name="com.unifiedhr.system.ui.OfficeLocationActivity"
+130-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:88:13-54
+131            android:exported="false"
+131-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:89:13-37
+132            android:parentActivityName="com.unifiedhr.system.ui.AdminDashboardActivity" >
+132-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:90:13-68
+133            <meta-data
+133-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:91:13-93:82
+134                android:name="android.support.PARENT_ACTIVITY"
+134-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:92:17-63
+135                android:value="com.unifiedhr.system.ui.AdminDashboardActivity" />
+135-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:93:17-79
+136        </activity>
+137
+138        <meta-data
+138-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:96:9-98:57
+139            android:name="preloaded_fonts"
+139-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:97:13-43
+140            android:resource="@array/preloaded_fonts" />
+140-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:98:13-54
+141
+142        <provider
+143            android:name="androidx.core.content.FileProvider"
+143-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:101:13-62
+144            android:authorities="com.unifiedhr.system.fileprovider"
+144-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:102:13-64
+145            android:exported="false"
+145-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:103:13-37
+146            android:grantUriPermissions="true" >
+146-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:104:13-47
+147            <meta-data
+147-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:105:13-107:63
+148                android:name="android.support.FILE_PROVIDER_PATHS"
+148-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:106:17-67
+149                android:resource="@xml/file_provider_paths" />
+149-->C:\Users\thoka\StudioProjects\UnifiedHRSystem\app\src\main\AndroidManifest.xml:107:17-60
+150        </provider>
+151
+152        <activity
+152-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:29:9-46:20
+153            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+153-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:30:13-80
+154            android:excludeFromRecents="true"
+154-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:31:13-46
+155            android:exported="true"
+155-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:32:13-36
+156            android:launchMode="singleTask"
+156-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:33:13-44
+157            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+157-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:34:13-72
+158            <intent-filter>
+158-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:35:13-45:29
+159                <action android:name="android.intent.action.VIEW" />
+159-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:36:17-69
+159-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:36:25-66
+160
+161                <category android:name="android.intent.category.DEFAULT" />
+161-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:38:17-76
+161-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:38:27-73
+162                <category android:name="android.intent.category.BROWSABLE" />
+162-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:39:17-78
+162-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:39:27-75
+163
+164                <data
+164-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:41:17-44:51
+165                    android:host="firebase.auth"
+165-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:42:21-49
+166                    android:path="/"
+166-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:43:21-37
+167                    android:scheme="genericidp" />
+167-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:44:21-48
+168            </intent-filter>
+169        </activity>
+170        <activity
+170-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:47:9-64:20
+171            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+171-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:48:13-79
+172            android:excludeFromRecents="true"
+172-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:49:13-46
+173            android:exported="true"
+173-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:50:13-36
+174            android:launchMode="singleTask"
+174-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:51:13-44
+175            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+175-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:52:13-72
+176            <intent-filter>
+176-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:53:13-63:29
+177                <action android:name="android.intent.action.VIEW" />
+177-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:36:17-69
+177-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:36:25-66
+178
+179                <category android:name="android.intent.category.DEFAULT" />
+179-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:38:17-76
+179-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:38:27-73
+180                <category android:name="android.intent.category.BROWSABLE" />
+180-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:39:17-78
+180-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:39:27-75
+181
+182                <data
+182-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:41:17-44:51
+183                    android:host="firebase.auth"
+183-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:42:21-49
+184                    android:path="/"
+184-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:43:21-37
+185                    android:scheme="recaptcha" />
+185-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:44:21-48
+186            </intent-filter>
+187        </activity>
+188
+189        <service
+189-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:66:9-72:19
+190            android:name="com.google.firebase.components.ComponentDiscoveryService"
+190-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:67:13-84
+191            android:directBootAware="true"
+191-->[com.google.firebase:firebase-common:20.3.3] C:\Users\thoka\.gradle\caches\transforms-3\eb5f79d2008cbed9708bab40ceb0d41a\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:34:13-43
+192            android:exported="false" >
+192-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:68:13-37
+193            <meta-data
+193-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:69:13-71:85
+194                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+194-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:70:17-109
+195                android:value="com.google.firebase.components.ComponentRegistrar" />
+195-->[com.google.firebase:firebase-auth:22.1.1] C:\Users\thoka\.gradle\caches\transforms-3\a018d77d30a79048f05a5662d7602a4e\transformed\jetified-firebase-auth-22.1.1\AndroidManifest.xml:71:17-82
+196            <meta-data
+196-->[com.google.firebase:firebase-database:20.2.2] C:\Users\thoka\.gradle\caches\transforms-3\2e4f04adcaa79ad2f50226c37fa4b788\transformed\jetified-firebase-database-20.2.2\AndroidManifest.xml:31:13-33:85
+197                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+197-->[com.google.firebase:firebase-database:20.2.2] C:\Users\thoka\.gradle\caches\transforms-3\2e4f04adcaa79ad2f50226c37fa4b788\transformed\jetified-firebase-database-20.2.2\AndroidManifest.xml:32:17-109
+198                android:value="com.google.firebase.components.ComponentRegistrar" />
+198-->[com.google.firebase:firebase-database:20.2.2] C:\Users\thoka\.gradle\caches\transforms-3\2e4f04adcaa79ad2f50226c37fa4b788\transformed\jetified-firebase-database-20.2.2\AndroidManifest.xml:33:17-82
+199            <meta-data
+199-->[com.google.firebase:firebase-storage:20.2.1] C:\Users\thoka\.gradle\caches\transforms-3\c168f0c467870c735ad56c3a9aa02f9b\transformed\jetified-firebase-storage-20.2.1\AndroidManifest.xml:32:13-34:85
+200                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+200-->[com.google.firebase:firebase-storage:20.2.1] C:\Users\thoka\.gradle\caches\transforms-3\c168f0c467870c735ad56c3a9aa02f9b\transformed\jetified-firebase-storage-20.2.1\AndroidManifest.xml:33:17-107
+201                android:value="com.google.firebase.components.ComponentRegistrar" />
+201-->[com.google.firebase:firebase-storage:20.2.1] C:\Users\thoka\.gradle\caches\transforms-3\c168f0c467870c735ad56c3a9aa02f9b\transformed\jetified-firebase-storage-20.2.1\AndroidManifest.xml:34:17-82
+202            <meta-data
+202-->[com.google.firebase:firebase-firestore:24.7.1] C:\Users\thoka\.gradle\caches\transforms-3\67477cb950482846410f9bcec9bebf0b\transformed\jetified-firebase-firestore-24.7.1\AndroidManifest.xml:17:13-19:85
+203                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+203-->[com.google.firebase:firebase-firestore:24.7.1] C:\Users\thoka\.gradle\caches\transforms-3\67477cb950482846410f9bcec9bebf0b\transformed\jetified-firebase-firestore-24.7.1\AndroidManifest.xml:18:17-111
+204                android:value="com.google.firebase.components.ComponentRegistrar" />
+204-->[com.google.firebase:firebase-firestore:24.7.1] C:\Users\thoka\.gradle\caches\transforms-3\67477cb950482846410f9bcec9bebf0b\transformed\jetified-firebase-firestore-24.7.1\AndroidManifest.xml:19:17-82
+205        </service> <!-- Needs to be explicitly declared on P+ -->
+206        <uses-library
+206-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\4804a6fa0645a642b4a30d0f5736bbb9\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:39:9-41:40
+207            android:name="org.apache.http.legacy"
+207-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\4804a6fa0645a642b4a30d0f5736bbb9\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:40:13-50
+208            android:required="false" />
+208-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\4804a6fa0645a642b4a30d0f5736bbb9\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:41:13-37
+209
+210        <activity
+210-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
+211            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+211-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
+212            android:clearTaskOnLaunch="true"
+212-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
+213            android:screenOrientation="sensorLandscape"
+213-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
+214            android:stateNotNeeded="true"
+214-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
+215            android:theme="@style/zxing_CaptureTheme"
+215-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
+216            android:windowSoftInputMode="stateAlwaysHidden" />
+216-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\thoka\.gradle\caches\transforms-3\93f999f9cbf9ff53f3cd68fab13800b4\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+217
+218        <provider
+218-->[com.google.firebase:firebase-common:20.3.3] C:\Users\thoka\.gradle\caches\transforms-3\eb5f79d2008cbed9708bab40ceb0d41a\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:25:9-30:39
+219            android:name="com.google.firebase.provider.FirebaseInitProvider"
+219-->[com.google.firebase:firebase-common:20.3.3] C:\Users\thoka\.gradle\caches\transforms-3\eb5f79d2008cbed9708bab40ceb0d41a\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:26:13-77
+220            android:authorities="com.unifiedhr.system.firebaseinitprovider"
+220-->[com.google.firebase:firebase-common:20.3.3] C:\Users\thoka\.gradle\caches\transforms-3\eb5f79d2008cbed9708bab40ceb0d41a\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:27:13-72
+221            android:directBootAware="true"
+221-->[com.google.firebase:firebase-common:20.3.3] C:\Users\thoka\.gradle\caches\transforms-3\eb5f79d2008cbed9708bab40ceb0d41a\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:28:13-43
+222            android:exported="false"
+222-->[com.google.firebase:firebase-common:20.3.3] C:\Users\thoka\.gradle\caches\transforms-3\eb5f79d2008cbed9708bab40ceb0d41a\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:29:13-37
+223            android:initOrder="100" />
+223-->[com.google.firebase:firebase-common:20.3.3] C:\Users\thoka\.gradle\caches\transforms-3\eb5f79d2008cbed9708bab40ceb0d41a\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:30:13-36
+224
+225        <activity
+225-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\9782e9994e83bd6d43f76651a3367d0b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+226            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+226-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\9782e9994e83bd6d43f76651a3367d0b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+227            android:exported="false"
+227-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\9782e9994e83bd6d43f76651a3367d0b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+228            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+228-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\9782e9994e83bd6d43f76651a3367d0b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+229
+230        <meta-data
+230-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\5cbd0882d0365a281492a062ba5db7a5\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+231            android:name="com.google.android.gms.version"
+231-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\5cbd0882d0365a281492a062ba5db7a5\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+232            android:value="@integer/google_play_services_version" />
+232-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\thoka\.gradle\caches\transforms-3\5cbd0882d0365a281492a062ba5db7a5\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+233
+234        <provider
+234-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thoka\.gradle\caches\transforms-3\8e1d411bd013df71b19fbe37b4b0dbc1\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+235            android:name="androidx.startup.InitializationProvider"
+235-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thoka\.gradle\caches\transforms-3\8e1d411bd013df71b19fbe37b4b0dbc1\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+236            android:authorities="com.unifiedhr.system.androidx-startup"
+236-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thoka\.gradle\caches\transforms-3\8e1d411bd013df71b19fbe37b4b0dbc1\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+237            android:exported="false" >
+237-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thoka\.gradle\caches\transforms-3\8e1d411bd013df71b19fbe37b4b0dbc1\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+238            <meta-data
+238-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thoka\.gradle\caches\transforms-3\8e1d411bd013df71b19fbe37b4b0dbc1\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+239                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+239-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thoka\.gradle\caches\transforms-3\8e1d411bd013df71b19fbe37b4b0dbc1\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+240                android:value="androidx.startup" />
+240-->[androidx.emoji2:emoji2:1.2.0] C:\Users\thoka\.gradle\caches\transforms-3\8e1d411bd013df71b19fbe37b4b0dbc1\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+241            <meta-data
+241-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\thoka\.gradle\caches\transforms-3\1c6a35349369346d704bed3df075973f\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+242                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+242-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\thoka\.gradle\caches\transforms-3\1c6a35349369346d704bed3df075973f\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+243                android:value="androidx.startup" />
+243-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\thoka\.gradle\caches\transforms-3\1c6a35349369346d704bed3df075973f\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+244        </provider>
+245    </application>
+246
+247</manifest>
