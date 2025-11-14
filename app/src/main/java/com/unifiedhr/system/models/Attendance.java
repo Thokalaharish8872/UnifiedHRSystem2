@@ -1,16 +1,29 @@
 package com.unifiedhr.system.models;
 
 public class Attendance {
+    public static final String TYPE_PRESENT = "PRESENT";
+    public static final String TYPE_LEAVE = "LEAVE";
+
+    public static final String STATUS_PENDING_MANAGER = "PENDING_MANAGER";
+    public static final String STATUS_PENDING_ADMIN = "PENDING_ADMIN";
+    public static final String STATUS_MANAGER_APPROVED = "MANAGER_APPROVED";
+    public static final String STATUS_MANAGER_REJECTED = "MANAGER_REJECTED";
+    public static final String STATUS_ADMIN_APPROVED = "ADMIN_APPROVED";
+    public static final String STATUS_ADMIN_REJECTED = "ADMIN_REJECTED";
+
     private String attendanceId;
     private String employeeId;
     private String date;
-    private String checkInTime;
-    private String checkOutTime;
-    private String checkInLocation;
-    private String checkOutLocation;
-    private String attendanceType; // GPS, QR, Web, WFH
-    private boolean isPresent;
-    private long timestamp;
+    private String requestType;
+    private String reason;
+    private String status;
+    private String managerId;
+    private String adminId;
+    private String managerComment;
+    private String adminComment;
+    private long requestedAt;
+    private long managerDecisionAt;
+    private long adminDecisionAt;
 
     public Attendance() {
     }
@@ -19,13 +32,12 @@ public class Attendance {
         this.attendanceId = attendanceId;
         this.employeeId = employeeId;
         this.date = date;
-        this.timestamp = System.currentTimeMillis();
-        this.isPresent = false;
+        this.requestedAt = System.currentTimeMillis();
+        this.status = STATUS_PENDING_MANAGER;
+        this.requestType = TYPE_PRESENT;
     }
 
-    // Getters and Setters
     public String getAttendanceId() { return attendanceId; }
-    public void setAttendanceId(String attendanceId) { this.attendanceId = attendanceId; }
 
     public String getEmployeeId() { return employeeId; }
     public void setEmployeeId(String employeeId) { this.employeeId = employeeId; }
@@ -33,26 +45,29 @@ public class Attendance {
     public String getDate() { return date; }
     public void setDate(String date) { this.date = date; }
 
-    public String getCheckInTime() { return checkInTime; }
-    public void setCheckInTime(String checkInTime) { this.checkInTime = checkInTime; }
+    public String getRequestType() { return requestType; }
+    public void setRequestType(String requestType) { this.requestType = requestType; }
 
-    public String getCheckOutTime() { return checkOutTime; }
-    public void setCheckOutTime(String checkOutTime) { this.checkOutTime = checkOutTime; }
+    public String getReason() { return reason; }
+    public void setReason(String reason) { this.reason = reason; }
 
-    public String getCheckInLocation() { return checkInLocation; }
-    public void setCheckInLocation(String checkInLocation) { this.checkInLocation = checkInLocation; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
-    public String getCheckOutLocation() { return checkOutLocation; }
-    public void setCheckOutLocation(String checkOutLocation) { this.checkOutLocation = checkOutLocation; }
-
-    public String getAttendanceType() { return attendanceType; }
-    public void setAttendanceType(String attendanceType) { this.attendanceType = attendanceType; }
-
-    public boolean isPresent() { return isPresent; }
-    public void setPresent(boolean present) { isPresent = present; }
-
-    public long getTimestamp() { return timestamp; }
-    public void setTimestamp(long timestamp) { this.timestamp = timestamp; }
+    public String getManagerId() { return managerId; }
+    public void setManagerId(String managerId) { this.managerId = managerId; }
+    public String getAdminId() { return adminId; }
+    public void setAdminId(String adminId) { this.adminId = adminId; }
+    public void setManagerComment(String managerComment) { this.managerComment = managerComment; }
+    public String getManagerComment() { return managerComment; }
+    public void setAdminComment(String adminComment) { this.adminComment = adminComment; }
+    public String getAdminComment() { return adminComment; }
+    public long getRequestedAt() { return requestedAt; }
+    public void setRequestedAt(long requestedAt) { this.requestedAt = requestedAt; }
+    public void setManagerDecisionAt(long managerDecisionAt) { this.managerDecisionAt = managerDecisionAt; }
+    public void setAdminDecisionAt(long adminDecisionAt) { this.adminDecisionAt = adminDecisionAt; }
+    public long getManagerDecisionAt() { return managerDecisionAt; }
+    public long getAdminDecisionAt() { return adminDecisionAt; }
 }
 
 

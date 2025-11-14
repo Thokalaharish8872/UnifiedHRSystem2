@@ -16,7 +16,7 @@ import com.unifiedhr.system.utils.FirebaseHelper;
 
 public class AdminDashboardActivity extends AppCompatActivity {
     private TextView tvWelcome;
-    private CardView cvCreateCompany, cvManagers, cvTeam, cvPerformance, cvRecruitment;
+    private CardView cvCreateCompany, cvManagers, cvAttendance, cvTeam, cvRecruitment;
     private SharedPreferences prefs;
     private FirebaseAuth auth;
 
@@ -43,8 +43,8 @@ public class AdminDashboardActivity extends AppCompatActivity {
         tvWelcome = findViewById(R.id.tvWelcome);
         cvCreateCompany = findViewById(R.id.cvCreateCompany);
         cvManagers = findViewById(R.id.cvManagers);
+        cvAttendance = findViewById(R.id.cvAttendance);
         cvTeam = findViewById(R.id.cvTeam);
-        cvPerformance = findViewById(R.id.cvPerformance);
         cvRecruitment = findViewById(R.id.cvRecruitment);
     }
 
@@ -59,13 +59,13 @@ public class AdminDashboardActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        cvTeam.setOnClickListener(v -> {
-            Intent intent = new Intent(this, TeamManagementActivity.class);
+        cvAttendance.setOnClickListener(v -> {
+            Intent intent = new Intent(this, AdminAttendanceRequestsActivity.class);
             startActivity(intent);
         });
 
-        cvPerformance.setOnClickListener(v -> {
-            Intent intent = new Intent(this, PerformanceActivity.class);
+        cvTeam.setOnClickListener(v -> {
+            Intent intent = new Intent(this, TeamManagementActivity.class);
             startActivity(intent);
         });
 
@@ -92,10 +92,6 @@ public class AdminDashboardActivity extends AppCompatActivity {
         if (id == R.id.menu_logout) {
             logout();
             return true;
-        } else if (id == R.id.menu_set_office_location) {
-            Intent intent = new Intent(this, OfficeLocationActivity.class);
-            startActivity(intent);
-            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -104,7 +100,6 @@ public class AdminDashboardActivity extends AppCompatActivity {
         auth.signOut();
         prefs.edit().clear().apply();
         Intent intent = new Intent(this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }

@@ -3,12 +3,14 @@ package com.unifiedhr.system.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,9 +18,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.unifiedhr.system.R;
+import com.unifiedhr.system.models.AdminLoginRequest;
 import com.unifiedhr.system.models.User;
+import com.unifiedhr.system.services.AdminLoginRequestService;
 import com.unifiedhr.system.services.UserService;
 import com.unifiedhr.system.utils.FirebaseHelper;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private FirebaseAuth auth;
     private UserService userService;
+    private AdminLoginRequestService requestService;
     private SharedPreferences prefs;
 
     @Override
@@ -36,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseHelper.getInstance().getAuth();
         userService = new UserService();
+        requestService = new AdminLoginRequestService();
         prefs = getSharedPreferences("UnifiedHR", MODE_PRIVATE);
 
         etEmail = findViewById(R.id.etEmail);
@@ -44,14 +52,12 @@ public class LoginActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
         progressBar = findViewById(R.id.progressBar);
 
-        btnLogin.setOnClickListener(v -> loginUser());
-        btnRegister.setOnClickListener(v -> registerAdmin());
-        
-        // Job Seeker login button
         Button btnJobSeekerLogin = findViewById(R.id.btnJobSeekerLogin);
-        if (btnJobSeekerLogin != null) {
-            btnJobSeekerLogin.setOnClickListener(v -> showJobSeekerLogin());
-        }
+
+        btnLogin.setOnClickListener(v -> loginUser());
+        btnRegister.setOnClickListener(v -> applyForAdminLogin());
+
+        btnJobSeekerLogin.setOnClickListener(v -> showJobSeekerLogin());
     }
 
     private void loginUser() {
@@ -92,13 +98,27 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
                 if (user != null) {
-                    // Save user session in SharedPreferences
+                    // Check if admin login is approved
+                    if ("Admin".equals(user.getRole())) {
+                        String loginStatus = user.getLoginStatus();
+                        if (loginStatus == null || "pending".equals(loginStatus)) {
+                            Toast.makeText(LoginActivity.this, "Your admin login request is pending approval. Please wait for Super Admin approval.", Toast.LENGTH_LONG).show();
+                            auth.signOut();
+                            return;
+                        } else if ("rejected".equals(loginStatus)) {
+                            Toast.makeText(LoginActivity.this, "Your admin login request has been rejected. Please contact Super Admin.", Toast.LENGTH_LONG).show();
+                            auth.signOut();
+                            return;
+                        }
+                    }
+
                     prefs.edit()
                             .putString("userId", user.getUserId())
                             .putString("userName", user.getName())
                             .putString("userRole", user.getRole())
                             .putString("companyId", user.getCompanyId())
                             .putString("employeeId", user.getEmployeeId())
+                            .putString("managerId", user.getManagerId())
                             .putBoolean("isRecruiter", user.isRecruiter())
                             .apply();
 
@@ -115,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void registerAdmin() {
+    private void applyForAdminLogin() {
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
@@ -129,30 +149,66 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        promptForName(getString(R.string.dialog_title_admin_name),
+                name -> createAdminLoginRequest(email, password, name));
+    }
+
+    private void createAdminLoginRequest(String email, String password, String name) {
         progressBar.setVisibility(View.VISIBLE);
         btnLogin.setEnabled(false);
         btnRegister.setEnabled(false);
 
+        // First create Firebase Auth account
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
-                    progressBar.setVisibility(View.GONE);
-                    btnLogin.setEnabled(true);
-                    btnRegister.setEnabled(true);
-
                     if (task.isSuccessful()) {
                         String userId = FirebaseHelper.getInstance().getCurrentUserId();
-                        String name = email.contains("@") ? email.substring(0, email.indexOf("@")) : email;
+                        if (userId == null) {
+                            progressBar.setVisibility(View.GONE);
+                            btnLogin.setEnabled(true);
+                            btnRegister.setEnabled(true);
+                            Toast.makeText(this, "Failed to get user ID", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
 
+                        // Create user with pending status
                         User user = new User(userId, email, name, "Admin", "");
-                        userService.createUser(user, (error, ref) -> {
-                            if (error == null) {
-                                Toast.makeText(this, "Admin account created successfully", Toast.LENGTH_SHORT).show();
-                                loadUserAndRedirect();
+                        user.setLoginStatus("pending");
+                        userService.createUser(user, (userError, userRef) -> {
+                            if (userError == null) {
+                                // Create admin login request
+                                String requestId = FirebaseHelper.getInstance().getDatabaseReference("adminLoginRequests").push().getKey();
+                                if (requestId != null) {
+                                    AdminLoginRequest request = new AdminLoginRequest(requestId, userId, email, name);
+                                    requestService.createRequest(request, (requestError, requestRef) -> {
+                                        progressBar.setVisibility(View.GONE);
+                                        btnLogin.setEnabled(true);
+                                        btnRegister.setEnabled(true);
+
+                                        if (requestError == null) {
+                                            Toast.makeText(this, "Admin login request submitted. Please wait for Super Admin approval.", Toast.LENGTH_LONG).show();
+                                            auth.signOut();
+                                        } else {
+                                            Toast.makeText(this, "Failed to create login request", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                } else {
+                                    progressBar.setVisibility(View.GONE);
+                                    btnLogin.setEnabled(true);
+                                    btnRegister.setEnabled(true);
+                                    Toast.makeText(this, "Failed to create request ID", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
+                                progressBar.setVisibility(View.GONE);
+                                btnLogin.setEnabled(true);
+                                btnRegister.setEnabled(true);
                                 Toast.makeText(this, "Failed to create user profile", Toast.LENGTH_SHORT).show();
                             }
                         });
                     } else {
+                        progressBar.setVisibility(View.GONE);
+                        btnLogin.setEnabled(true);
+                        btnRegister.setEnabled(true);
                         Toast.makeText(this, "Registration failed: " +
                                 task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -162,6 +218,9 @@ public class LoginActivity extends AppCompatActivity {
     private void redirectToDashboard(String role) {
         Intent intent;
         switch (role) {
+            case "SuperAdmin":
+                intent = new Intent(this, SuperAdminDashboardActivity.class);
+                break;
             case "Admin":
                 intent = new Intent(this, AdminDashboardActivity.class);
                 break;
@@ -178,8 +237,6 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Unknown role", Toast.LENGTH_SHORT).show();
                 return;
         }
-
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }
@@ -204,7 +261,6 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         checkAndCreateJobSeeker();
                     } else {
-                        // If login fails, try to register as JobSeeker
                         registerJobSeeker(email, password);
                     }
                 });
@@ -223,14 +279,14 @@ public class LoginActivity extends AppCompatActivity {
                 User user = snapshot.getValue(User.class);
                 if (user != null) {
                     if ("JobSeeker".equals(user.getRole())) {
-                        saveSessionAndRedirect(user);
+                        saveUserDataAndRedirect(user);
                     } else {
                         Toast.makeText(LoginActivity.this, "This account is not a Job Seeker account", Toast.LENGTH_SHORT).show();
                         auth.signOut();
                     }
                 } else {
-                    // User doesn't exist, create JobSeeker account
-                    createJobSeekerAccount();
+                    promptForName(getString(R.string.dialog_title_job_seeker_name),
+                            LoginActivity.this::createJobSeekerAccount);
                 }
             }
 
@@ -247,6 +303,11 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        promptForName(getString(R.string.dialog_title_job_seeker_name),
+                name -> createJobSeekerWithAuth(email, password, name));
+    }
+
+    private void createJobSeekerWithAuth(String email, String password, String name) {
         progressBar.setVisibility(View.VISIBLE);
         btnLogin.setEnabled(false);
 
@@ -256,7 +317,7 @@ public class LoginActivity extends AppCompatActivity {
                     btnLogin.setEnabled(true);
 
                     if (task.isSuccessful()) {
-                        createJobSeekerAccount();
+                        createJobSeekerAccount(name);
                     } else {
                         Toast.makeText(this, "Registration failed: " +
                                 task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -264,7 +325,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    private void createJobSeekerAccount() {
+    private void createJobSeekerAccount(String name) {
         String userId = FirebaseHelper.getInstance().getCurrentUserId();
         if (userId == null || auth.getCurrentUser() == null) {
             Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show();
@@ -276,29 +337,61 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Email not found", Toast.LENGTH_SHORT).show();
             return;
         }
-        
-        String name = email.contains("@") ? email.substring(0, email.indexOf("@")) : email;
 
         User user = new User(userId, email, name, "JobSeeker", "");
         userService.createUser(user, (error, ref) -> {
             if (error == null) {
-                saveSessionAndRedirect(user);
+                saveUserDataAndRedirect(user);
             } else {
                 Toast.makeText(this, "Failed to create Job Seeker profile", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void saveSessionAndRedirect(User user) {
+    private void saveUserDataAndRedirect(User user) {
         prefs.edit()
                 .putString("userId", user.getUserId())
                 .putString("userName", user.getName())
                 .putString("userRole", user.getRole())
                 .putString("companyId", user.getCompanyId())
                 .putString("employeeId", user.getEmployeeId())
+                .putString("managerId", user.getManagerId())
                 .putBoolean("isRecruiter", user.isRecruiter())
                 .apply();
 
         redirectToDashboard(user.getRole());
+    }
+
+    private void promptForName(String title, NameCallback callback) {
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_input_name, null);
+        TextInputLayout inputLayout = dialogView.findViewById(R.id.inputLayoutName);
+        TextInputEditText etName = dialogView.findViewById(R.id.etName);
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setView(dialogView)
+                .setPositiveButton(R.string.action_continue, null)
+                .setNegativeButton(R.string.cancel, (d, which) -> d.dismiss())
+                .create();
+
+        dialog.setOnShowListener(dlg -> {
+            Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            positiveButton.setOnClickListener(v -> {
+                String name = etName.getText() != null ? etName.getText().toString().trim() : "";
+                if (name.isEmpty()) {
+                    inputLayout.setError(getString(R.string.error_name_required));
+                } else {
+                    inputLayout.setError(null);
+                    dialog.dismiss();
+                    callback.onNameEntered(name);
+                }
+            });
+        });
+
+        dialog.show();
+    }
+
+    private interface NameCallback {
+        void onNameEntered(String name);
     }
 }

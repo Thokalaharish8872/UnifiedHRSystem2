@@ -4,7 +4,7 @@
             "outputFile": "com.unifiedhr.system.app-mergeDebugResources-35:/values-id/values-id.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\thoka\\.gradle\\caches\\transforms-3\\93f999f9cbf9ff53f3cd68fab13800b4\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-id\\values-id.xml",
+                    "source": "C:\\Users\\nangi\\.gradle\\caches\\transforms-3\\93f999f9cbf9ff53f3cd68fab13800b4\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-id\\values-id.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

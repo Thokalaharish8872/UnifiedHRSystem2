@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary"
-            app:title="Attendance"
+            app:title="Attendance Request"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:navigationIconTint="@color/white" />
@@ -31,8 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp"
-            android:gravity="center">
+            android:padding="24dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -48,108 +47,100 @@
                     android:padding="20dp">
 
                     <TextView
-                        android:id="@+id/tvStatus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/status_not_checked_in"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/primary"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/tvLocation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textSize="14sp"
-                        android:textColor="@android:color/darker_gray"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="16dp" />
-
-                    <TextView
                         android:id="@+id/tvDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textSize="12sp"
-                        android:textColor="@android:color/darker_gray"
-                        android:layout_gravity="center" />
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                        android:textColor="@android:color/darker_gray" />
 
+                    <TextView
+                        android:id="@+id/tvRequestSummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/status_no_request"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textColor="@color/primary" />
+
+                    <TextView
+                        android:id="@+id/tvManagerStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/status_manager_pending"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+                    <TextView
+                        android:id="@+id/tvAdminStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/status_admin_pending"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRequestForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_submit_attendance"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spRequestType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:entries="@array/attendance_request_types" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layoutReason"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/hint_attendance_reason">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etReason"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSubmitRequest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/action_submit_request"
+                        app:cornerRadius="8dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/heading_work_from_office"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/primary"
-                android:layout_marginBottom="16dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCheckIn"
+                android:id="@+id/tvInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/check_in_office"
-                android:textSize="18sp"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp"
-                app:cornerRadius="8dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCheckOut"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/check_out_office"
-                android:textSize="18sp"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp"
-                android:enabled="false"
-                app:cornerRadius="8dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"
-                android:alpha="0.3"
-                android:layout_marginVertical="16dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/heading_work_from_home"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/primary"
-                android:layout_marginBottom="16dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnWFHCheckIn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/check_in_wfh"
-                android:textSize="16sp"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                app:cornerRadius="8dp"
-                app:strokeColor="@color/primary" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnWFHCheckOut"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/check_out_wfh"
-                android:textSize="16sp"
-                android:padding="16dp"
-                android:enabled="false"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                app:cornerRadius="8dp"
-                app:strokeColor="@color/primary" />
-
+                android:layout_marginTop="16dp"
+                android:text="@string/info_attendance_request"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

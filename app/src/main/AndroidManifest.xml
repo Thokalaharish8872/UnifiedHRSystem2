@@ -36,8 +36,19 @@
             android:name=".ui.LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.SuperAdminDashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.AdminDashboardActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.AdminLoginRequestsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.SuperAdminDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.SuperAdminDashboardActivity" />
+        </activity>
         <activity
             android:name=".ui.ManagerDashboardActivity"
             android:exported="false" />
@@ -50,6 +61,22 @@
         <activity
             android:name=".ui.TaskManagementActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.ManagerAttendanceRequestsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.ManagerDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.ManagerDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".ui.AdminAttendanceRequestsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.AdminDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.AdminDashboardActivity" />
+        </activity>
         <activity
             android:name=".ui.RecruitmentActivity"
             android:exported="false" />
@@ -72,6 +99,22 @@
         <activity
             android:name=".ui.TeamManagementActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.KRAActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.EmployeeDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.EmployeeDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".ui.DailyReportActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.EmployeeDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.EmployeeDashboardActivity" />
+        </activity>
         <activity
             android:name=".ui.JobSeekerDashboardActivity"
             android:exported="false" />

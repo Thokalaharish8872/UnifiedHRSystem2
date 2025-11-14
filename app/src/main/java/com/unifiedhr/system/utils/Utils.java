@@ -14,24 +14,21 @@ public class Utils {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         return sdf.format(new Date());
     }
-
-    public static String getCurrentTime() {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-        return sdf.format(new Date());
-    }
-
-    public static String getCurrentDateTime() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        return sdf.format(new Date());
-    }
-
-    public static String formatDate(long timestamp) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
-        return sdf.format(new Date(timestamp));
-    }
-
     public static String generateEmployeeId(String companyId, int employeeCount) {
-        return companyId.substring(0, 3).toUpperCase() + String.format("%04d", employeeCount + 1);
+        String fallbackPrefix = "EMP";
+        if (companyId != null) {
+            String cleaned = companyId.replaceAll("[^A-Za-z0-9]", "");
+            if (!cleaned.isEmpty()) {
+                String padded = (cleaned + fallbackPrefix).toUpperCase(Locale.getDefault());
+                fallbackPrefix = padded.substring(0, Math.min(3, padded.length()));
+                if (fallbackPrefix.length() < 3) {
+                    fallbackPrefix = String.format(Locale.getDefault(), "%-3s", fallbackPrefix).replace(' ', 'X');
+                }
+            }
+        }
+
+        int nextNumber = Math.max(0, employeeCount) + 1;
+        return fallbackPrefix + String.format(Locale.getDefault(), "%04d", nextNumber);
     }
 }
 

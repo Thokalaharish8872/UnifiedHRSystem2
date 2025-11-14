@@ -54,9 +54,7 @@ public class MessagingActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("UnifiedHR", MODE_PRIVATE);
         userId = prefs.getString("userId", "");
         userName = prefs.getString("userName", "User");
-        String userRole = prefs.getString("userRole", "");
 
-        // Setup toolbar with back button
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -120,8 +118,7 @@ public class MessagingActivity extends AppCompatActivity {
 
         String messageId = Utils.generateId();
         String userRole = getSharedPreferences("UnifiedHR", MODE_PRIVATE).getString("userRole", "");
-        
-        // Set recruiterId if sender is Admin/Manager, otherwise leave empty
+
         String recruiterId = (userRole.equals("Admin") || userRole.equals("Manager")) ? userId : "";
         
         Message message = new Message(messageId, jobId, applicantId, recruiterId, userId, userName, messageText);

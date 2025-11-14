@@ -4,13 +4,14 @@ public class User {
     private String userId;
     private String email;
     private String name;
-    private String role; // Admin, Manager, Employee, JobSeeker
+    private String role; // SuperAdmin, Admin, Manager, Employee, JobSeeker
     private String companyId;
     private String employeeId;
     private String managerId;
     private String department;
     private String phone;
     private boolean isRecruiter;
+    private String loginStatus; // For Admin: pending, approved, rejected. For others: null or approved
     private long createdAt;
 
     public User() {
@@ -26,7 +27,6 @@ public class User {
         this.createdAt = System.currentTimeMillis();
     }
 
-    // Getters and Setters
     public String getUserId() { return userId; }
     public void setUserId(String userId) { this.userId = userId; }
 
@@ -37,7 +37,6 @@ public class User {
     public void setName(String name) { this.name = name; }
 
     public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
 
     public String getCompanyId() { return companyId; }
     public void setCompanyId(String companyId) { this.companyId = companyId; }
@@ -47,18 +46,23 @@ public class User {
 
     public String getManagerId() { return managerId; }
     public void setManagerId(String managerId) { this.managerId = managerId; }
-
-    public String getDepartment() { return department; }
-    public void setDepartment(String department) { this.department = department; }
-
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
-
+    
     public boolean isRecruiter() { return isRecruiter; }
-    public void setRecruiter(boolean recruiter) { isRecruiter = recruiter; }
-
+    public void setRecruiter(boolean recruiter) { this.isRecruiter = recruiter; }
+    
+    public String getLoginStatus() { return loginStatus; }
+    public void setLoginStatus(String loginStatus) { this.loginStatus = loginStatus; }
+    
     public long getCreatedAt() { return createdAt; }
     public void setCreatedAt(long createdAt) { this.createdAt = createdAt; }
+    
+    public void setRole(String role) { this.role = role; }
+    
+    public String getDepartment() { return department; }
+    public void setDepartment(String department) { this.department = department; }
+    
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 }
 
 

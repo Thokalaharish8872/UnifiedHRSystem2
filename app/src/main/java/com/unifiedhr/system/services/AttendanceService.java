@@ -14,8 +14,8 @@ public class AttendanceService {
         attendanceRef = FirebaseHelper.getInstance().getDatabaseReference("attendance");
     }
 
-    public Query getAttendanceByEmployeeAndDate(String employeeId, String date) {
-        return attendanceRef.orderByChild("employeeId").equalTo(employeeId);
+    public DatabaseReference getAttendanceRequest(String attendanceId) {
+        return attendanceRef.child(attendanceId);
     }
 
     public void createAttendance(Attendance attendance, DatabaseReference.CompletionListener listener) {
@@ -24,6 +24,17 @@ public class AttendanceService {
 
     public void updateAttendance(String attendanceId, Map<String, Object> updates, DatabaseReference.CompletionListener listener) {
         attendanceRef.child(attendanceId).updateChildren(updates, listener);
+    }
+
+    public DatabaseReference getAllRequests() {
+        return attendanceRef;
+    }
+    public Query getRequestsForManager(String managerId) {
+        return attendanceRef.orderByChild("managerId").equalTo(managerId);
+    }
+
+    public Query getRequestsByStatus(String status) {
+        return attendanceRef.orderByChild("status").equalTo(status);
     }
 }
 

@@ -8,16 +8,12 @@ import com.google.firebase.storage.FirebaseStorage;
 
 public class FirebaseHelper {
     private static FirebaseHelper instance;
-    private FirebaseAuth auth;
-    private FirebaseDatabase database;
-    private FirebaseFirestore firestore;
-    private FirebaseStorage storage;
+    private final FirebaseAuth auth;
+    private final FirebaseDatabase database;
 
     private FirebaseHelper() {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        firestore = FirebaseFirestore.getInstance();
-        storage = FirebaseStorage.getInstance();
     }
 
     public static synchronized FirebaseHelper getInstance() {
@@ -33,14 +29,6 @@ public class FirebaseHelper {
 
     public DatabaseReference getDatabaseReference(String path) {
         return database.getReference(path);
-    }
-
-    public FirebaseFirestore getFirestore() {
-        return firestore;
-    }
-
-    public FirebaseStorage getStorage() {
-        return storage;
     }
 
     public String getCurrentUserId() {

@@ -60,21 +60,12 @@ public class ApplicantAdapter extends RecyclerView.Adapter<ApplicantAdapter.Appl
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
         holder.tvAppliedDate.setText("Applied: " + sdf.format(new Date(applicant.getAppliedAt())));
 
-        // Resume button - check for resumeData (Base64), resumeUrl (legacy), or hasResume flag
-        // Also check if applicant has a resume by checking Firebase directly if needed
-        boolean hasResume = (applicant.getResumeData() != null && !applicant.getResumeData().isEmpty()) ||
-                           (applicant.getResumeUrl() != null && !applicant.getResumeUrl().isEmpty());
-        
-        // Always show resume button - if resume data isn't loaded, we'll fetch it on click
-        // This ensures recruiters can always try to view resumes
         holder.btnViewResume.setVisibility(View.VISIBLE);
         holder.btnViewResume.setEnabled(true);
         holder.btnViewResume.setOnClickListener(v -> {
             if (applicant.getResumeData() != null && !applicant.getResumeData().isEmpty()) {
-                // Decode Base64 and create temporary file
                 viewResumeFromBase64(applicant.getResumeData(), applicant.getApplicantId());
             } else if (applicant.getResumeUrl() != null && !applicant.getResumeUrl().isEmpty()) {
-                // Legacy: try to open URL
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(applicant.getResumeUrl()));
                     activity.startActivity(intent);
@@ -82,12 +73,10 @@ public class ApplicantAdapter extends RecyclerView.Adapter<ApplicantAdapter.Appl
                     Toast.makeText(activity, "Could not open resume URL", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                // Resume data might not be loaded, fetch it from Firebase
                 fetchAndViewResume(applicant.getApplicantId());
             }
         });
 
-        // Message button
         holder.btnMessage.setOnClickListener(v -> {
             Intent intent = new Intent(activity, MessagingActivity.class);
             intent.putExtra("jobId", jobId);
@@ -95,7 +84,6 @@ public class ApplicantAdapter extends RecyclerView.Adapter<ApplicantAdapter.Appl
             activity.startActivity(intent);
         });
 
-        // Status update buttons
         holder.btnShortlist.setOnClickListener(v -> updateStatus(applicant.getApplicantId(), "Shortlisted"));
         holder.btnReject.setOnClickListener(v -> updateStatus(applicant.getApplicantId(), "Rejected"));
     }
@@ -107,7 +95,6 @@ public class ApplicantAdapter extends RecyclerView.Adapter<ApplicantAdapter.Appl
                 return;
             }
 
-            // Decode Base64 to byte array
             byte[] pdfBytes = Base64.decode(base64Data, Base64.DEFAULT);
             
             if (pdfBytes == null || pdfBytes.length == 0) {
@@ -115,7 +102,6 @@ public class ApplicantAdapter extends RecyclerView.Adapter<ApplicantAdapter.Appl
                 return;
             }
             
-            // Create temporary file in external files directory for better compatibility
             File tempFile = new File(activity.getExternalFilesDir(null), applicantId + "_resume.pdf");
             if (tempFile.exists()) {
                 tempFile.delete();
@@ -125,14 +111,12 @@ public class ApplicantAdapter extends RecyclerView.Adapter<ApplicantAdapter.Appl
             fos.write(pdfBytes);
             fos.close();
             
-            // Create URI using FileProvider for secure file sharing
             Uri fileUri = FileProvider.getUriForFile(
                 activity,
                 activity.getPackageName() + ".fileprovider",
                 tempFile
             );
             
-            // Create intent to view PDF
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(fileUri, "application/pdf");
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -140,12 +124,10 @@ public class ApplicantAdapter extends RecyclerView.Adapter<ApplicantAdapter.Appl
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             
-            // Try to find a PDF viewer
             android.content.pm.ResolveInfo resolveInfo = activity.getPackageManager()
                 .resolveActivity(intent, android.content.pm.PackageManager.MATCH_DEFAULT_ONLY);
             
             if (resolveInfo != null) {
-                // Grant permissions to all potential PDF viewers
                 java.util.List<android.content.pm.ResolveInfo> resolveInfoList = activity.getPackageManager()
                     .queryIntentActivities(intent, android.content.pm.PackageManager.MATCH_DEFAULT_ONLY);
                 
@@ -157,7 +139,6 @@ public class ApplicantAdapter extends RecyclerView.Adapter<ApplicantAdapter.Appl
                 
                 activity.startActivity(Intent.createChooser(intent, "Open PDF with"));
             } else {
-                // Fallback: try with a more generic intent
                 Intent fallbackIntent = new Intent(Intent.ACTION_VIEW);
                 fallbackIntent.setDataAndType(fileUri, "*/*");
                 fallbackIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -176,7 +157,6 @@ public class ApplicantAdapter extends RecyclerView.Adapter<ApplicantAdapter.Appl
     }
 
     private void fetchAndViewResume(String applicantId) {
-        // Show loading message
         Toast.makeText(activity, "Loading resume...", Toast.LENGTH_SHORT).show();
 
         recruitmentService.getApplicant(applicantId).addListenerForSingleValueEvent(new ValueEventListener() {

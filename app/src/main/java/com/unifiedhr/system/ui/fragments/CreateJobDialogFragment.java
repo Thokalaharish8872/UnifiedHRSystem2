@@ -60,20 +60,17 @@ public class CreateJobDialogFragment extends DialogFragment {
         if (dialog != null && dialog.getWindow() != null) {
             Window window = dialog.getWindow();
 
-            // Make it full-screen
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             window.setBackgroundDrawableResource(android.R.color.white);
 
-            // Optional dim background
             WindowManager.LayoutParams params = window.getAttributes();
-            params.dimAmount = 0.4f; // set 0 for no dim
+            params.dimAmount = 0.4f;
             window.setAttributes(params);
         }
     }
 
     @Override
     public int getTheme() {
-        // Apply fullscreen style
         return R.style.FullScreenDialog;
     }
 

@@ -4,7 +4,7 @@
             "outputFile": "com.unifiedhr.system.app-mergeDebugResources-35:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\thoka\\.gradle\\caches\\transforms-3\\5e599c961dd995def5aab74d74df39ef\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\nangi\\.gradle\\caches\\transforms-3\\5e599c961dd995def5aab74d74df39ef\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

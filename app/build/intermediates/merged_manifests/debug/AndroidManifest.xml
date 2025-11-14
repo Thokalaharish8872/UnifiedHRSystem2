@@ -79,8 +79,19 @@
             android:name="com.unifiedhr.system.ui.LoginActivity"
             android:exported="false" />
         <activity
+            android:name="com.unifiedhr.system.ui.SuperAdminDashboardActivity"
+            android:exported="false" />
+        <activity
             android:name="com.unifiedhr.system.ui.AdminDashboardActivity"
             android:exported="false" />
+        <activity
+            android:name="com.unifiedhr.system.ui.AdminLoginRequestsActivity"
+            android:exported="false"
+            android:parentActivityName="com.unifiedhr.system.ui.SuperAdminDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.SuperAdminDashboardActivity" />
+        </activity>
         <activity
             android:name="com.unifiedhr.system.ui.ManagerDashboardActivity"
             android:exported="false" />
@@ -93,6 +104,22 @@
         <activity
             android:name="com.unifiedhr.system.ui.TaskManagementActivity"
             android:exported="false" />
+        <activity
+            android:name="com.unifiedhr.system.ui.ManagerAttendanceRequestsActivity"
+            android:exported="false"
+            android:parentActivityName="com.unifiedhr.system.ui.ManagerDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.ManagerDashboardActivity" />
+        </activity>
+        <activity
+            android:name="com.unifiedhr.system.ui.AdminAttendanceRequestsActivity"
+            android:exported="false"
+            android:parentActivityName="com.unifiedhr.system.ui.AdminDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.AdminDashboardActivity" />
+        </activity>
         <activity
             android:name="com.unifiedhr.system.ui.RecruitmentActivity"
             android:exported="false" />
@@ -114,6 +141,22 @@
         <activity
             android:name="com.unifiedhr.system.ui.TeamManagementActivity"
             android:exported="false" />
+        <activity
+            android:name="com.unifiedhr.system.ui.KRAActivity"
+            android:exported="false"
+            android:parentActivityName="com.unifiedhr.system.ui.EmployeeDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.EmployeeDashboardActivity" />
+        </activity>
+        <activity
+            android:name="com.unifiedhr.system.ui.DailyReportActivity"
+            android:exported="false"
+            android:parentActivityName="com.unifiedhr.system.ui.EmployeeDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.EmployeeDashboardActivity" />
+        </activity>
         <activity
             android:name="com.unifiedhr.system.ui.JobSeekerDashboardActivity"
             android:exported="false" />

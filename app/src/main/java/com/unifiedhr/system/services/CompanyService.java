@@ -17,38 +17,6 @@ public class CompanyService {
         companiesRef.child(company.getCompanyId()).setValue(company, listener);
     }
 
-    public DatabaseReference getCompany(String companyId) {
-        return companiesRef.child(companyId);
-    }
-
-    public void updateOfficeLocation(String companyId, double latitude, double longitude, int radiusMeters, String address,
-                                     DatabaseReference.CompletionListener listener) {
-        DatabaseReference companyRef = companiesRef.child(companyId);
-        companyRef.child("officeLatitude").setValue(latitude, (error, ref) -> {
-            if (error == null) {
-                companyRef.child("officeLongitude").setValue(longitude, (error1, ref1) -> {
-                    if (error1 == null) {
-                        companyRef.child("officeRadiusMeters").setValue(radiusMeters, (error2, ref2) -> {
-                            if (error2 == null) {
-                                if (address != null) {
-                                    companyRef.child("officeAddress").setValue(address, listener);
-                                } else if (listener != null) {
-                                    listener.onComplete(null, ref2);
-                                }
-                            } else if (listener != null) {
-                                listener.onComplete(error2, ref2);
-                            }
-                        });
-                    } else if (listener != null) {
-                        listener.onComplete(error1, ref1);
-                    }
-                });
-            } else if (listener != null) {
-                listener.onComplete(error, ref);
-            }
-        });
-    }
-
     public void incrementEmployeeCount(String companyId, DatabaseReference.CompletionListener listener) {
         DatabaseReference countRef = companiesRef.child(companyId).child("employeeCount");
         countRef.runTransaction(new Transaction.Handler() {
