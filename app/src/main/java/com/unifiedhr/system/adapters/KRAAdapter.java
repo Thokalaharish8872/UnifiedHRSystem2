@@ -57,3 +57,4 @@ public class KRAAdapter extends RecyclerView.Adapter<KRAAdapter.KRAViewHolder> {
 
 
 
+

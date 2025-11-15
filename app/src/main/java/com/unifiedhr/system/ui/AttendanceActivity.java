@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -21,11 +23,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.unifiedhr.system.R;
+import com.unifiedhr.system.adapters.AttendanceHistoryAdapter;
 import com.unifiedhr.system.models.Attendance;
 import com.unifiedhr.system.services.AttendanceService;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class AttendanceActivity extends AppCompatActivity {
@@ -40,9 +46,12 @@ public class AttendanceActivity extends AppCompatActivity {
     private TextInputEditText etReason;
     private MaterialButton btnSubmitRequest;
     private View cardRequestForm;
+    private RecyclerView rvAttendanceHistory;
 
     private AttendanceService attendanceService;
     private Attendance currentRequest;
+    private AttendanceHistoryAdapter attendanceHistoryAdapter;
+    private List<Attendance> attendanceHistoryList;
 
     private String userId;
     private String employeeId;
@@ -77,6 +86,7 @@ public class AttendanceActivity extends AppCompatActivity {
 
         initViews();
         loadExistingRequest();
+        loadAttendanceHistory();
     }
 
     private void initViews() {
@@ -90,6 +100,7 @@ public class AttendanceActivity extends AppCompatActivity {
         etReason = findViewById(R.id.etReason);
         btnSubmitRequest = findViewById(R.id.btnSubmitRequest);
         cardRequestForm = findViewById(R.id.cardRequestForm);
+        rvAttendanceHistory = findViewById(R.id.rvAttendanceHistory);
 
         tvDate.setText(todayDate);
 
@@ -108,6 +119,11 @@ public class AttendanceActivity extends AppCompatActivity {
         });
 
         btnSubmitRequest.setOnClickListener(v -> submitAttendanceRequest());
+
+        rvAttendanceHistory.setLayoutManager(new LinearLayoutManager(this));
+        attendanceHistoryList = new ArrayList<>();
+        attendanceHistoryAdapter = new AttendanceHistoryAdapter(attendanceHistoryList);
+        rvAttendanceHistory.setAdapter(attendanceHistoryAdapter);
     }
 
     private void loadExistingRequest() {
@@ -129,6 +145,27 @@ public class AttendanceActivity extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError error) {
                         Toast.makeText(AttendanceActivity.this,
                                 R.string.toast_attendance_request_failed, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void loadAttendanceHistory() {
+        attendanceService.getAllRequests().orderByChild("employeeId").equalTo(employeeId)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        attendanceHistoryList.clear();
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Attendance attendance = dataSnapshot.getValue(Attendance.class);
+                            attendanceHistoryList.add(attendance);
+                        }
+                        Collections.sort(attendanceHistoryList, (o1, o2) -> o2.getDate().compareTo(o1.getDate()));
+                        attendanceHistoryAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
                     }
                 });
     }
@@ -161,7 +198,8 @@ public class AttendanceActivity extends AppCompatActivity {
                 && (Attendance.STATUS_MANAGER_REJECTED.equals(currentRequest.getStatus())
                 || Attendance.STATUS_ADMIN_REJECTED.equals(currentRequest.getStatus()));
 
-        Attendance request = currentRequest != null ? currentRequest : new Attendance(attendanceId, employeeId, todayDate);
+        Attendance request = currentRequest != null ? currentRequest : new Attendance();
+        request.setAttendanceId(attendanceId);
         request.setEmployeeId(employeeId);
         request.setDate(todayDate);
         request.setRequestType(selectedType);
@@ -203,6 +241,7 @@ public class AttendanceActivity extends AppCompatActivity {
             if (error == null) {
                 currentRequest = request;
                 updateUiState();
+                loadAttendanceHistory(); // Refresh history
                 Toast.makeText(this,
                         isReSubmit ? R.string.toast_attendance_request_updated
                                 : R.string.toast_attendance_request_submitted,

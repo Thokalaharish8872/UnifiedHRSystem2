@@ -1,9 +1,6 @@
 R_DEF: Internal format may change without notice
 local
 array attendance_request_types
-array com_google_android_gms_fonts_certs
-array com_google_android_gms_fonts_certs_dev
-array com_google_android_gms_fonts_certs_prod
 array preloaded_fonts
 array task_status_options
 color accent
@@ -42,6 +39,7 @@ id btnShortlist
 id btnSubmit
 id btnSubmitOwnAttendance
 id btnSubmitRequest
+id btnSuperAdminRegister
 id btnUpdateStatus
 id btnUploadResume
 id btnUseCurrentLocation
@@ -53,6 +51,7 @@ id cardView
 id cardViewItem
 id cvAdminRequests
 id cvAttendance
+id cvAttendanceMonitoring
 id cvCreateCompany
 id cvDailyReport
 id cvKRA
@@ -62,6 +61,7 @@ id cvRecruitment
 id cvSkills
 id cvTasks
 id cvTeam
+id etAdminName
 id etAmount
 id etChallenges
 id etComment
@@ -85,12 +85,15 @@ id etRadius
 id etReason
 id etSkillsRequired
 id etStartDate
+id etSuperAdminName
 id etTitle
 id etWorkDone
 id inputLayoutName
 id layoutActions
+id layoutAdminName
 id layoutAssignTo
 id layoutComment
+id layoutCompanyName
 id layoutLatitude
 id layoutLocationInput
 id layoutLongitude
@@ -98,11 +101,14 @@ id layoutManagerSelector
 id layoutNotes
 id layoutRadius
 id layoutReason
+id layoutSuperAdminName
 id menu_logout
 id menu_set_office_location
 id progressBar
 id recyclerRequests
 id recyclerView
+id rvAttendance
+id rvAttendanceHistory
 id spEmployees
 id spManager
 id spRequestType
@@ -117,12 +123,16 @@ id tvAssignedBy
 id tvAttendance
 id tvCompletion
 id tvDate
+id tvDaysPresentThisMonth
+id tvDaysPresentThisWeek
+id tvDaysPresentThisYear
 id tvDeadline
 id tvDepartment
 id tvDescription
 id tvEmail
 id tvEmployee
 id tvEmployeeId
+id tvEmployeeName
 id tvEmptyState
 id tvInfo
 id tvJobTitle
@@ -152,6 +162,7 @@ layout activity_admin_dashboard
 layout activity_admin_login_requests
 layout activity_applicants
 layout activity_attendance
+layout activity_attendance_monitoring
 layout activity_daily_report
 layout activity_documents
 layout activity_employee_dashboard
@@ -173,6 +184,7 @@ layout activity_super_admin_dashboard
 layout activity_task_management
 layout activity_team_management
 layout dialog_add_team_member
+layout dialog_admin_register
 layout dialog_apply_job
 layout dialog_comment_input
 layout dialog_create_company
@@ -180,12 +192,16 @@ layout dialog_create_job
 layout dialog_create_task
 layout dialog_input_name
 layout dialog_location_input
+layout dialog_super_admin_register
 layout dialog_update_task_status
 layout item_admin_login_request
 layout item_applicant
+layout item_attendance
+layout item_attendance_history
 layout item_attendance_request
 layout item_dashboard
 layout item_document
+layout item_employee_attendance_stats
 layout item_job
 layout item_jobseeker_job
 layout item_kra
@@ -356,6 +372,7 @@ string task_title
 string tasks
 string team
 string title_admin_attendance_requests
+string title_attendance
 string title_manager_attendance_requests
 string title_office_location
 string title_submit_attendance

@@ -1,11 +1,18 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// Top-level build file
 buildscript {
+
+    ext {
+        kotlin_version = '1.8.22'  // ← This fixes your duplicate class problem
+    }
+
     repositories {
         google()
         mavenCentral()
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:8.1.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.4.0'
     }
 }
@@ -13,4 +20,3 @@ buildscript {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-

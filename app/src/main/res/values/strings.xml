@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Unified HR System</string>
-    
+
     <!-- Common -->
     <string name="welcome">Welcome</string>
     <string name="login">Login</string>
@@ -20,13 +20,13 @@
     <string name="dialog_title_job_seeker_name">Enter job seeker name</string>
     <string name="hint_name">Full name</string>
     <string name="error_name_required">Name is required</string>
-    
+
     <!-- Roles -->
     <string name="admin">Admin</string>
     <string name="manager">Manager</string>
     <string name="employee">Employee</string>
     <string name="recruiter">Recruiter</string>
-    
+
     <!-- Dashboard -->
     <string name="dashboard">Dashboard</string>
     <string name="attendance">Attendance</string>
@@ -37,8 +37,9 @@
     <string name="expenses">Expenses</string>
     <string name="documents">Documents</string>
     <string name="team">Team</string>
-    
+
     <!-- Attendance -->
+    <string name="title_attendance">Attendance</string>
     <string name="mark_attendance">Mark Attendance</string>
     <string name="attendance_marked">Attendance Marked</string>
     <string name="check_in">Check In</string>
@@ -156,7 +157,7 @@
     <string name="error_select_manager">Please select a manager</string>
     <string name="error_no_managers_available">No managers available. Create a manager first.</string>
     <string name="error_loading_managers">Failed to load managers. Please try again.</string>
-    
+
     <!-- Tasks -->
     <string name="create_task">Create Task</string>
     <string name="task_title">Task Title</string>
@@ -167,36 +168,31 @@
     <string name="pending">Pending</string>
     <string name="in_progress">In Progress</string>
     <string name="completed">Completed</string>
-    
+
     <!-- Recruitment -->
-    <string name="create_job">Create Job</string>
+    <string name="create_.job">Create Job</string>
     <string name="job_title">Job Title</string>
     <string name="job_description">Job Description</string>
     <string name="applicants">Applicants</string>
     <string name="convert_to_employee">Convert to Employee</string>
-    
+
     <!-- Performance -->
     <string name="scorecard">Scorecard</string>
     <string name="attendance_percentage">Attendance %</string>
     <string name="completion_percentage">Completion %</string>
     <string name="rating">Rating</string>
     <string name="leaderboard">Leaderboard</string>
-    
+
     <!-- Leave -->
     <string name="apply_leave">Apply Leave</string>
     <string name="leave_type">Leave Type</string>
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
     <string name="reason">Reason</string>
-    
+
     <!-- Expenses -->
     <string name="submit_expense">Submit Expense</string>
     <string name="expense_type">Expense Type</string>
     <string name="amount">Amount</string>
     <string name="receipt">Receipt</string>
 </resources>
-
-
-
-
-

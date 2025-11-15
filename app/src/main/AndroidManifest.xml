@@ -8,10 +8,13 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -21,26 +24,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnifiedHRSystem"
         tools:targetApi="31">
-        
         <activity
-            android:name=".ui.SplashActivity"
-            android:exported="true"
-            android:theme="@style/Theme.UnifiedHRSystem">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".ui.ManagerAttendanceRequestsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.ManagerDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.unifiedhr.system.ui.ManagerDashboardActivity" />
         </activity>
-        
-        <activity
-            android:name=".ui.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.SuperAdminDashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.AdminDashboardActivity"
-            android:exported="false" />
         <activity
             android:name=".ui.AdminLoginRequestsActivity"
             android:exported="false"
@@ -49,6 +40,25 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.unifiedhr.system.ui.SuperAdminDashboardActivity" />
         </activity>
+        <activity
+            android:name=".ui.SuperAdminDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.UnifiedHRSystem">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AdminDashboardActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.ManagerDashboardActivity"
             android:exported="false" />
@@ -61,14 +71,6 @@
         <activity
             android:name=".ui.TaskManagementActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.ManagerAttendanceRequestsActivity"
-            android:exported="false"
-            android:parentActivityName=".ui.ManagerDashboardActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.unifiedhr.system.ui.ManagerDashboardActivity" />
-        </activity>
         <activity
             android:name=".ui.AdminAttendanceRequestsActivity"
             android:exported="false"
@@ -95,7 +97,6 @@
         <activity
             android:name=".ui.ManagerManagementActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.TeamManagementActivity"
             android:exported="false" />
@@ -135,6 +136,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.unifiedhr.system.ui.AdminDashboardActivity" />
         </activity>
+        <activity
+            android:name=".ui.AttendanceMonitoringActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -149,10 +153,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_paths" />
         </provider>
-
     </application>
 
 </manifest>
-
-
-

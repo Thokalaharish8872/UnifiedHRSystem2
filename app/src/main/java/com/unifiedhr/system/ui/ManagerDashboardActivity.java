@@ -15,7 +15,7 @@ import com.unifiedhr.system.utils.FirebaseHelper;
 
 public class ManagerDashboardActivity extends AppCompatActivity {
     private TextView tvWelcome;
-    private CardView cvTeam, cvTasks, cvAttendance, cvRecruitment;
+    private CardView cvTeam, cvTasks, cvAttendance, cvRecruitment, cvAttendanceMonitoring;
     private SharedPreferences prefs;
     private FirebaseAuth auth;
 
@@ -45,6 +45,7 @@ public class ManagerDashboardActivity extends AppCompatActivity {
         cvTasks = findViewById(R.id.cvTasks);
         cvAttendance = findViewById(R.id.cvAttendance);
         cvRecruitment = findViewById(R.id.cvRecruitment);
+        cvAttendanceMonitoring = findViewById(R.id.cvAttendanceMonitoring);
     }
 
     private void setupClickListeners() {
@@ -65,6 +66,11 @@ public class ManagerDashboardActivity extends AppCompatActivity {
 
         cvRecruitment.setOnClickListener(v -> {
             Intent intent = new Intent(this, RecruitmentActivity.class);
+            startActivity(intent);
+        });
+
+        cvAttendanceMonitoring.setOnClickListener(v -> {
+            Intent intent = new Intent(this, AttendanceMonitoringActivity.class);
             startActivity(intent);
         });
     }
@@ -98,6 +104,3 @@ public class ManagerDashboardActivity extends AppCompatActivity {
         finish();
     }
 }
-
-
-

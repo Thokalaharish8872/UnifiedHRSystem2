@@ -86,6 +86,19 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             app:cornerRadius="8dp" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSuperAdminRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register as Super Admin"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            app:cornerRadius="8dp" />
+
+
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
