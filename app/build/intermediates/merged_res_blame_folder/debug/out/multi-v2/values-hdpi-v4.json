@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.unifiedhr.system.app-mergeDebugResources-38:/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "com.unifiedhr.system.app-mergeDebugResources-44:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\thoka\\.gradle\\caches\\transforms-3\\54e4279a70725a8bb46ff26b72cc3ab9\\transformed\\appcompat-1.6.1\\res\\values-hdpi-v4\\values-hdpi-v4.xml",

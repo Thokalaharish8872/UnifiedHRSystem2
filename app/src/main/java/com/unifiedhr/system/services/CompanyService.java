@@ -1,5 +1,6 @@
 package com.unifiedhr.system.services;
 
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.MutableData;
@@ -13,13 +14,18 @@ public class CompanyService {
     public CompanyService() {
         companiesRef = FirebaseHelper.getInstance().getDatabaseReference("companies");
     }
+
     public void createCompany(Company company, DatabaseReference.CompletionListener listener) {
         companiesRef.child(company.getCompanyId()).setValue(company, listener);
     }
 
+    public DatabaseReference getCompany(String companyId) {
+        return companiesRef.child(companyId);
+    }
+
     public void incrementEmployeeCount(String companyId, DatabaseReference.CompletionListener listener) {
-        DatabaseReference countRef = companiesRef.child(companyId).child("employeeCount");
-        countRef.runTransaction(new Transaction.Handler() {
+        if (companyId == null) return;
+        companiesRef.child(companyId).child("employeeCount").runTransaction(new Transaction.Handler() {
             @Override
             public Transaction.Result doTransaction(MutableData mutableData) {
                 Integer currentValue = mutableData.getValue(Integer.class);
@@ -32,12 +38,11 @@ public class CompanyService {
             }
 
             @Override
-            public void onComplete(DatabaseError databaseError, boolean committed, com.google.firebase.database.DataSnapshot dataSnapshot) {
+            public void onComplete(DatabaseError databaseError, boolean committed, DataSnapshot dataSnapshot) {
                 if (listener != null) {
-                    listener.onComplete(databaseError, companiesRef);
+                    listener.onComplete(databaseError, null);
                 }
             }
         });
     }
 }
-

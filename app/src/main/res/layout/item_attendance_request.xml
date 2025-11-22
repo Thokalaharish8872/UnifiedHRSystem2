@@ -14,6 +14,14 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/tvEmployeeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/primary"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
             android:id="@+id/tvEmployee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

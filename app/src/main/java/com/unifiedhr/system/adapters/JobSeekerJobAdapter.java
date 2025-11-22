@@ -35,6 +35,7 @@ public class JobSeekerJobAdapter extends RecyclerView.Adapter<JobSeekerJobAdapte
     public void onBindViewHolder(@NonNull JobViewHolder holder, int position) {
         Job job = jobList.get(position);
         holder.tvTitle.setText(job.getTitle());
+        holder.tvCompanyName.setText(job.getCompanyName());
         holder.tvDescription.setText(job.getDescription());
         holder.tvDepartment.setText(job.getDepartment() != null ? job.getDepartment() : "Not specified");
         holder.tvLocation.setText(job.getLocation() != null ? job.getLocation() : "Not specified");
@@ -61,13 +62,14 @@ public class JobSeekerJobAdapter extends RecyclerView.Adapter<JobSeekerJobAdapte
 
     static class JobViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
-        TextView tvTitle, tvDescription, tvDepartment, tvLocation, tvApplicants;
+        TextView tvTitle, tvCompanyName, tvDescription, tvDepartment, tvLocation, tvApplicants;
         Button btnApply, btnViewDetails;
 
         JobViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvCompanyName = itemView.findViewById(R.id.tvCompanyName);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvDepartment = itemView.findViewById(R.id.tvDepartment);
             tvLocation = itemView.findViewById(R.id.tvLocation);
@@ -77,4 +79,3 @@ public class JobSeekerJobAdapter extends RecyclerView.Adapter<JobSeekerJobAdapte
         }
     }
 }
-

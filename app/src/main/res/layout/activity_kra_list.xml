@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:title="KRA Management"
+        android:titleTextColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnAddKRA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add KRA"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/primary"
+        android:textColor="@color/white"
+        android:padding="12dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

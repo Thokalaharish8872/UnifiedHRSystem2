@@ -13,10 +13,14 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:background="@color/primary"
             app:title="Admin Dashboard"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white"
+            app:titleCentered="false"
+            app:contentInsetStartWithNavigation="0dp"
+            app:contentInsetLeft="16dp" />
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -34,6 +38,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:layout_marginBottom="24dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp"
@@ -66,51 +71,16 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cvCreateCompany"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Create Company"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/primary" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Set up your company profile"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/darker_gray"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
+            <!-- MANAGE MANAGERS -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvManagers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -136,16 +106,15 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
+            <!-- ✅ ADDED: TASK MANAGEMENT -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/cvAttendance"
+                android:id="@+id/cvTasks"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -156,7 +125,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/title_admin_attendance_requests"
+                        android:text="Task Management"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="@color/primary" />
@@ -164,23 +133,23 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/description_admin_attendance_card"
+                        android:text="Create tasks and assign to managers"
                         android:textSize="14sp"
                         android:textColor="@android:color/darker_gray"
                         android:layout_marginTop="8dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+            <!-- END TASK CARD -->
 
+
+            <!-- KRA MANAGEMENT -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/cvAttendanceMonitoring"
+                android:id="@+id/cvKRA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -191,7 +160,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Attendance Monitoring"
+                        android:text="KRA Management"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="@color/primary" />
@@ -199,23 +168,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Monitor employee attendance"
+                        android:text="Set and track KRAs for employees"
                         android:textSize="14sp"
                         android:textColor="@android:color/darker_gray"
                         android:layout_marginTop="8dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- TEAM MANAGEMENT -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvTeam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -241,16 +208,83 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
+            <!-- ATTENDANCE CARD -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvAttendance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Attendance Requests"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Approve or reject requests"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- MONITORING -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvAttendanceMonitoring"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Attendance Monitoring"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Monitor employee attendance"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- RECRUITMENT -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvRecruitment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -269,7 +303,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Manage job postings and applicants"
+                        android:text="Manage job postings"
                         android:textSize="14sp"
                         android:textColor="@android:color/darker_gray"
                         android:layout_marginTop="8dp" />
@@ -278,4 +312,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

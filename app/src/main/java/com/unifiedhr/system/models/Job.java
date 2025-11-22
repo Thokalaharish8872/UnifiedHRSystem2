@@ -1,18 +1,9 @@
 package com.unifiedhr.system.models;
 
 public class Job {
-    private String jobId;
-    private String companyId;
-    private String title;
-    private String description;
-    private String department;
-    private String location;
-    private String jobLink;
-    private String status; // Active, Closed
-    private String createdBy;
+    private String jobId, companyId, companyName, title, description, department, location, status, createdBy, skillsRequired;
     private long createdAt;
     private int applicantCount;
-    private String skillsRequired; // Comma-separated skills
 
     public Job() {
     }
@@ -28,12 +19,14 @@ public class Job {
         this.applicantCount = 0;
     }
 
-    // Getters and Setters
     public String getJobId() { return jobId; }
     public void setJobId(String jobId) { this.jobId = jobId; }
 
     public String getCompanyId() { return companyId; }
     public void setCompanyId(String companyId) { this.companyId = companyId; }
+
+    public String getCompanyName() { return companyName; }
+    public void setCompanyName(String companyName) { this.companyName = companyName; }
 
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
@@ -47,24 +40,11 @@ public class Job {
     public String getLocation() { return location; }
     public void setLocation(String location) { this.location = location; }
 
-    public String getJobLink() { return jobLink; }
-    public void setJobLink(String jobLink) { this.jobLink = jobLink; }
-
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 
-    public String getCreatedBy() { return createdBy; }
-    public void setCreatedBy(String createdBy) { this.createdBy = createdBy; }
-
-    public long getCreatedAt() { return createdAt; }
-    public void setCreatedAt(long createdAt) { this.createdAt = createdAt; }
-
     public int getApplicantCount() { return applicantCount; }
     public void setApplicantCount(int applicantCount) { this.applicantCount = applicantCount; }
-
     public String getSkillsRequired() { return skillsRequired; }
     public void setSkillsRequired(String skillsRequired) { this.skillsRequired = skillsRequired; }
 }
-
-
-

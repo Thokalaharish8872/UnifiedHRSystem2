@@ -54,6 +54,15 @@
                         android:textSize="24sp"
                         android:textStyle="bold"
                         android:textColor="@color/primary"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvCompanyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Company Name"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/darker_gray"
                         android:layout_marginBottom="16dp" />
 
                     <LinearLayout
@@ -214,4 +223,3 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

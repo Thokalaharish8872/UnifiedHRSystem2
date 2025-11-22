@@ -29,12 +29,5 @@ public class AttendanceService {
     public DatabaseReference getAllRequests() {
         return attendanceRef;
     }
-    public Query getRequestsForManager(String managerId) {
-        return attendanceRef.orderByChild("managerId").equalTo(managerId);
-    }
-
-    public Query getRequestsByStatus(String status) {
-        return attendanceRef.orderByChild("status").equalTo(status);
-    }
 }
 

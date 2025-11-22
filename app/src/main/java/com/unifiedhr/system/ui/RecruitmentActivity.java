@@ -4,11 +4,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -17,7 +18,6 @@ import com.unifiedhr.system.adapters.JobAdapter;
 import com.unifiedhr.system.models.Job;
 import com.unifiedhr.system.services.RecruitmentService;
 import com.unifiedhr.system.ui.fragments.CreateJobDialogFragment;
-import com.unifiedhr.system.utils.FirebaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +27,8 @@ public class RecruitmentActivity extends AppCompatActivity {
     private JobAdapter adapter;
     private List<Job> jobList;
     private RecruitmentService recruitmentService;
-    private Button btnCreateJob;
-    private String companyId;
-    private String userRole;
+    private FloatingActionButton btnCreateJob;
+    private String companyId, userRole;
     private boolean isRecruiter;
 
     @Override
@@ -45,7 +44,6 @@ public class RecruitmentActivity extends AppCompatActivity {
         recruitmentService = new RecruitmentService();
         jobList = new ArrayList<>();
 
-        // Setup toolbar with back button
         Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -105,4 +103,3 @@ public class RecruitmentActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-

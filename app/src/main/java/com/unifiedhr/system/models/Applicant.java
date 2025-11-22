@@ -1,17 +1,8 @@
 package com.unifiedhr.system.models;
 
 public class Applicant {
-    private String applicantId;
-    private String jobId;
-    private String name;
-    private String email;
-    private String phone;
-    private String resumeUrl;
-    private String resumeData;
-    private String status;
+    private String applicantId, jobId, name, email, phone, resumeUrl, resumeData, status;
     private long appliedAt;
-    private String notes;
-
     public Applicant() {
     }
 

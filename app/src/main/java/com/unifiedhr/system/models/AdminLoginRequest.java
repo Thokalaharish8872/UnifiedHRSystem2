@@ -1,18 +1,8 @@
 package com.unifiedhr.system.models;
 
 public class AdminLoginRequest {
-    private String requestId;
-    private String userId;
-    private String email;
-    private String name;
-    private String status; // pending, approved, rejected
+    private String requestId, userId, email, name, status;
     private long requestedAt;
-    private long reviewedAt;
-    private String reviewedBy; // SuperAdmin userId who reviewed
-
-    public AdminLoginRequest() {
-    }
-
     public AdminLoginRequest(String requestId, String userId, String email, String name) {
         this.requestId = requestId;
         this.userId = userId;
@@ -24,10 +14,6 @@ public class AdminLoginRequest {
 
     public String getRequestId() {
         return requestId;
-    }
-
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
     }
 
     public String getUserId() {
@@ -66,23 +52,4 @@ public class AdminLoginRequest {
         return requestedAt;
     }
 
-    public void setRequestedAt(long requestedAt) {
-        this.requestedAt = requestedAt;
-    }
-
-    public long getReviewedAt() {
-        return reviewedAt;
-    }
-
-    public void setReviewedAt(long reviewedAt) {
-        this.reviewedAt = reviewedAt;
-    }
-
-    public String getReviewedBy() {
-        return reviewedBy;
-    }
-
-    public void setReviewedBy(String reviewedBy) {
-        this.reviewedBy = reviewedBy;
-    }
 }

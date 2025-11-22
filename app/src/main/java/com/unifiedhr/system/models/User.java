@@ -1,17 +1,8 @@
 package com.unifiedhr.system.models;
 
 public class User {
-    private String userId;
-    private String email;
-    private String name;
-    private String role; // SuperAdmin, Admin, Manager, Employee, JobSeeker
-    private String companyId;
-    private String employeeId;
-    private String managerId;
-    private String department;
-    private String phone;
+    private String userId, email, name, role, companyId, employeeId, managerId, loginStatus;
     private boolean isRecruiter;
-    private String loginStatus; // For Admin: pending, approved, rejected. For others: null or approved
     private long createdAt;
 
     public User() {
@@ -46,23 +37,9 @@ public class User {
 
     public String getManagerId() { return managerId; }
     public void setManagerId(String managerId) { this.managerId = managerId; }
-    
-    public boolean isRecruiter() { return isRecruiter; }
-    public void setRecruiter(boolean recruiter) { this.isRecruiter = recruiter; }
-    
+
     public String getLoginStatus() { return loginStatus; }
     public void setLoginStatus(String loginStatus) { this.loginStatus = loginStatus; }
-    
-    public long getCreatedAt() { return createdAt; }
-    public void setCreatedAt(long createdAt) { this.createdAt = createdAt; }
-    
-    public void setRole(String role) { this.role = role; }
-    
-    public String getDepartment() { return department; }
-    public void setDepartment(String department) { this.department = department; }
-    
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
 }
 
 

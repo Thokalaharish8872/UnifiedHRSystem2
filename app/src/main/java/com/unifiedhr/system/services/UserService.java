@@ -16,6 +16,10 @@ public class UserService {
         usersRef.child(user.getUserId()).setValue(user, listener);
     }
 
+    public void updateUser(String userId, User user, DatabaseReference.CompletionListener listener) {
+        usersRef.child(userId).setValue(user, listener);
+    }
+
     public DatabaseReference getUser(String userId) {
         return usersRef.child(userId);
     }
@@ -24,12 +28,3 @@ public class UserService {
         return usersRef;
     }
 }
-
-
-
-
-
-
-
-
-

@@ -25,21 +25,28 @@
         android:theme="@style/Theme.UnifiedHRSystem"
         tools:targetApi="31">
         <activity
+            android:name=".ui.EmployeeFeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ManagerCombinedKRAActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.UpdateKRAProgressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.KRAListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CreateKRAActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.ManagerAttendanceRequestsActivity"
             android:exported="false"
-            android:parentActivityName=".ui.ManagerDashboardActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.unifiedhr.system.ui.ManagerDashboardActivity" />
-        </activity>
+            android:parentActivityName=".ui.ManagerDashboardActivity" />
         <activity
             android:name=".ui.AdminLoginRequestsActivity"
             android:exported="false"
-            android:parentActivityName=".ui.SuperAdminDashboardActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.unifiedhr.system.ui.SuperAdminDashboardActivity" />
-        </activity>
+            android:parentActivityName=".ui.SuperAdminDashboardActivity" />
         <activity
             android:name=".ui.SuperAdminDashboardActivity"
             android:exported="false" />
@@ -60,6 +67,9 @@
             android:name=".ui.AdminDashboardActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.AdminRegistrationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.ManagerDashboardActivity"
             android:exported="false" />
         <activity
@@ -74,25 +84,9 @@
         <activity
             android:name=".ui.AdminAttendanceRequestsActivity"
             android:exported="false"
-            android:parentActivityName=".ui.AdminDashboardActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.unifiedhr.system.ui.AdminDashboardActivity" />
-        </activity>
+            android:parentActivityName=".ui.AdminDashboardActivity" />
         <activity
             android:name=".ui.RecruitmentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.LeaveRequestActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ExpenseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.DocumentsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.PerformanceActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ManagerManagementActivity"
@@ -103,19 +97,11 @@
         <activity
             android:name=".ui.KRAActivity"
             android:exported="false"
-            android:parentActivityName=".ui.EmployeeDashboardActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.unifiedhr.system.ui.EmployeeDashboardActivity" />
-        </activity>
+            android:parentActivityName=".ui.EmployeeDashboardActivity" />
         <activity
             android:name=".ui.DailyReportActivity"
             android:exported="false"
-            android:parentActivityName=".ui.EmployeeDashboardActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.unifiedhr.system.ui.EmployeeDashboardActivity" />
-        </activity>
+            android:parentActivityName=".ui.EmployeeDashboardActivity" />
         <activity
             android:name=".ui.JobSeekerDashboardActivity"
             android:exported="false" />
@@ -128,14 +114,6 @@
         <activity
             android:name=".ui.ApplicantsActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.OfficeLocationActivity"
-            android:exported="false"
-            android:parentActivityName=".ui.AdminDashboardActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.unifiedhr.system.ui.AdminDashboardActivity" />
-        </activity>
         <activity
             android:name=".ui.AttendanceMonitoringActivity"
             android:exported="false" />

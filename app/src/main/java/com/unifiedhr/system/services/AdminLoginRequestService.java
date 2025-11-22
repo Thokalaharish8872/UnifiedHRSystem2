@@ -13,19 +13,11 @@ public class AdminLoginRequestService {
                 .child(companyId)
                 .child("adminRequests");
     }
-
-    public void createRequest(AdminLoginRequest request, String companyId, DatabaseReference.CompletionListener listener) {
-        getCompanyRequestsRef(companyId)
-                .child(request.getRequestId())
-                .setValue(request, listener);
-    }
-
     public Query getPendingRequests(String companyId) {
         return getCompanyRequestsRef(companyId)
                 .orderByChild("status")
                 .equalTo("pending");
     }
-
     public void updateRequestStatus(String companyId, String requestId, String status, String reviewedBy, DatabaseReference.CompletionListener listener) {
         DatabaseReference ref = getCompanyRequestsRef(companyId).child(requestId);
         ref.child("status").setValue(status, listener);

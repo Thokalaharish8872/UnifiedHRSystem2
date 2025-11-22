@@ -11,12 +11,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.unifiedhr.system.R;
-import com.unifiedhr.system.ui.fragments.CreateCompanyDialogFragment;
 import com.unifiedhr.system.utils.FirebaseHelper;
 
 public class AdminDashboardActivity extends AppCompatActivity {
     private TextView tvWelcome;
-    private CardView cvCreateCompany, cvManagers, cvAttendance, cvTeam, cvRecruitment, cvAttendanceMonitoring;
+    private CardView cvManagers, cvTasks, cvTeam, cvRecruitment, cvAttendance, cvAttendanceMonitoring, cvKRA;
     private SharedPreferences prefs;
     private FirebaseAuth auth;
 
@@ -30,9 +29,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        }
+        if (getSupportActionBar() != null) { getSupportActionBar().setDisplayHomeAsUpEnabled(false); }
 
         initViews();
         setupClickListeners();
@@ -41,44 +38,24 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     private void initViews() {
         tvWelcome = findViewById(R.id.tvWelcome);
-        cvCreateCompany = findViewById(R.id.cvCreateCompany);
         cvManagers = findViewById(R.id.cvManagers);
-        cvAttendance = findViewById(R.id.cvAttendance);
+        cvTasks = findViewById(R.id.cvTasks);
         cvTeam = findViewById(R.id.cvTeam);
         cvRecruitment = findViewById(R.id.cvRecruitment);
+        cvAttendance = findViewById(R.id.cvAttendance);
         cvAttendanceMonitoring = findViewById(R.id.cvAttendanceMonitoring);
+        cvKRA = findViewById(R.id.cvKRA); // make sure id exists in XML
     }
 
     private void setupClickListeners() {
-        cvCreateCompany.setOnClickListener(v -> {
-            CreateCompanyDialogFragment dialog = new CreateCompanyDialogFragment();
-            dialog.show(getSupportFragmentManager(), "CreateCompany");
-        });
+        cvManagers.setOnClickListener(v -> startActivity(new Intent(this, ManagerManagementActivity.class)));
+        cvTasks.setOnClickListener(v -> startActivity(new Intent(this, TaskManagementActivity.class)));
+        cvAttendance.setOnClickListener(v -> startActivity(new Intent(this, AdminAttendanceRequestsActivity.class)));
+        cvTeam.setOnClickListener(v -> startActivity(new Intent(this, TeamManagementActivity.class)));
+        cvRecruitment.setOnClickListener(v -> startActivity(new Intent(this, RecruitmentActivity.class)));
+        cvAttendanceMonitoring.setOnClickListener(v -> startActivity(new Intent(this, AttendanceMonitoringActivity.class)));
 
-        cvManagers.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ManagerManagementActivity.class);
-            startActivity(intent);
-        });
-
-        cvAttendance.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AdminAttendanceRequestsActivity.class);
-            startActivity(intent);
-        });
-
-        cvTeam.setOnClickListener(v -> {
-            Intent intent = new Intent(this, TeamManagementActivity.class);
-            startActivity(intent);
-        });
-
-        cvRecruitment.setOnClickListener(v -> {
-            Intent intent = new Intent(this, RecruitmentActivity.class);
-            startActivity(intent);
-        });
-
-        cvAttendanceMonitoring.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AttendanceMonitoringActivity.class);
-            startActivity(intent);
-        });
+        cvKRA.setOnClickListener(v -> startActivity(new Intent(this, KRAListActivity.class)));
     }
 
     private void loadUserInfo() {
@@ -105,8 +82,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
     private void logout() {
         auth.signOut();
         prefs.edit().clear().apply();
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }

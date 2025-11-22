@@ -28,13 +28,11 @@ import java.util.List;
 import android.util.Base64;
 
 public class JobDetailActivity extends AppCompatActivity {
-    private TextView tvTitle, tvDescription, tvDepartment, tvLocation, tvSkills, tvApplicants;
+    private TextView tvTitle, tvCompanyName, tvDescription, tvDepartment, tvLocation, tvSkills, tvApplicants;
     private Button btnApply, btnViewMessages;
     private Job job;
     private RecruitmentService recruitmentService;
-    private String jobId;
-    private String userId;
-    private String applicantId;
+    private String jobId, userId, applicantId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +67,7 @@ public class JobDetailActivity extends AppCompatActivity {
 
     private void initViews() {
         tvTitle = findViewById(R.id.tvTitle);
+        tvCompanyName = findViewById(R.id.tvCompanyName);
         tvDescription = findViewById(R.id.tvDescription);
         tvDepartment = findViewById(R.id.tvDepartment);
         tvLocation = findViewById(R.id.tvLocation);
@@ -108,6 +107,7 @@ public class JobDetailActivity extends AppCompatActivity {
 
     private void displayJobDetails() {
         tvTitle.setText(job.getTitle());
+        tvCompanyName.setText(job.getCompanyName());
         tvDescription.setText(job.getDescription());
         tvDepartment.setText(job.getDepartment() != null ? job.getDepartment() : "Not specified");
         tvLocation.setText(job.getLocation() != null ? job.getLocation() : "Not specified");
@@ -189,7 +189,6 @@ public class JobDetailActivity extends AppCompatActivity {
                 return;
             }
 
-            // Read all bytes from input stream (handle large files)
             byte[] buffer = new byte[8192];
             java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
             int bytesRead;
@@ -199,17 +198,13 @@ public class JobDetailActivity extends AppCompatActivity {
             inputStream.close();
             byte[] pdfBytes = baos.toByteArray();
 
-            // Convert to Base64 string
             String base64Resume = Base64.encodeToString(pdfBytes, Base64.DEFAULT);
 
-            // Check size limit (Realtime Database has 256MB limit per node, Base64 increases size by ~33%)
-            // For safety, limit to ~150MB of original file (200MB Base64)
             if (base64Resume.length() > 200 * 1024 * 1024) {
                 Toast.makeText(this, "Resume file is too large. Please use a smaller file.", Toast.LENGTH_LONG).show();
                 return;
             }
 
-            // Store Base64 string in Realtime Database
             recruitmentService.getApplicant(applicantId).child("resumeData")
                     .setValue(base64Resume, (error, ref) -> {
                         if (error == null) {

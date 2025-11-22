@@ -31,7 +31,7 @@ public class AdminLoginRequestsActivity extends AppCompatActivity {
     private UserService userService;
     private List<AdminLoginRequest> requestList;
     private SharedPreferences prefs;
-    private String companyId;  // SuperAdmin company
+    private String companyId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +122,6 @@ public class AdminLoginRequestsActivity extends AppCompatActivity {
 
                     if (error == null) {
 
-                        // update admin loginStatus
                         userService.getUser(request.getUserId())
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
 

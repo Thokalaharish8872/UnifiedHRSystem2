@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "759350673828",
+    "project_id": "hr-management-system-e3fce",
+    "storage_bucket": "hr-management-system-e3fce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759350673828:android:eccf57d60b8e5d27bac131",
+        "android_client_info": {
+          "package_name": "com.unifiedhr.system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9z8Ui5Sxy6AdmUjntg2JTfD1HecssWUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

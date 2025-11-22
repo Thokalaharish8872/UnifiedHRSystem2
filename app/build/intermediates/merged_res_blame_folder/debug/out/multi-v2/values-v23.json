@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.unifiedhr.system.app-mergeDebugResources-38:/values-v23/values-v23.xml",
+            "outputFile": "com.unifiedhr.system.app-mergeDebugResources-44:/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\thoka\\.gradle\\caches\\transforms-3\\e1727c3c95aad04bb4330890284c62a4\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",

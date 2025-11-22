@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.unifiedhr.system.app-mergeDebugResources-38:/values-v18/values-v18.xml",
+            "outputFile": "com.unifiedhr.system.app-mergeDebugResources-44:/values-v18/values-v18.xml",
             "map": [
                 {
                     "source": "C:\\Users\\thoka\\.gradle\\caches\\transforms-3\\54e4279a70725a8bb46ff26b72cc3ab9\\transformed\\appcompat-1.6.1\\res\\values-v18\\values-v18.xml",

@@ -58,7 +58,6 @@ public class CreateCompanyDialogFragment extends DialogFragment {
         
         companyService.createCompany(company, (error, ref) -> {
             if (error == null) {
-                // Update user with company ID
                 SharedPreferences prefs = getActivity().getSharedPreferences("UnifiedHR", Context.MODE_PRIVATE);
                 prefs.edit().putString("companyId", companyId).apply();
                 

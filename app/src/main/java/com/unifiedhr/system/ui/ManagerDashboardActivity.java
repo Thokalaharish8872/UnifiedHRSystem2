@@ -6,16 +6,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.unifiedhr.system.R;
 import com.unifiedhr.system.utils.FirebaseHelper;
 
 public class ManagerDashboardActivity extends AppCompatActivity {
+
     private TextView tvWelcome;
-    private CardView cvTeam, cvTasks, cvAttendance, cvRecruitment, cvAttendanceMonitoring;
+    private CardView cvTeam, cvTasks, cvAttendance, cvRecruitment, cvAttendanceMonitoring, cvKRA, cvAttendanceRequests;
     private SharedPreferences prefs;
     private FirebaseAuth auth;
 
@@ -27,12 +30,8 @@ public class ManagerDashboardActivity extends AppCompatActivity {
         prefs = getSharedPreferences("UnifiedHR", MODE_PRIVATE);
         auth = FirebaseHelper.getInstance().getAuth();
 
-        // Setup toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        }
 
         initViews();
         setupClickListeners();
@@ -46,33 +45,21 @@ public class ManagerDashboardActivity extends AppCompatActivity {
         cvAttendance = findViewById(R.id.cvAttendance);
         cvRecruitment = findViewById(R.id.cvRecruitment);
         cvAttendanceMonitoring = findViewById(R.id.cvAttendanceMonitoring);
+        cvKRA = findViewById(R.id.cvKRA);
+        cvAttendanceRequests = findViewById(R.id.cvAttendanceRequests);
     }
 
     private void setupClickListeners() {
-        cvTeam.setOnClickListener(v -> {
-            Intent intent = new Intent(this, TeamManagementActivity.class);
-            startActivity(intent);
-        });
+        cvTeam.setOnClickListener(v -> startActivity(new Intent(this, TeamManagementActivity.class)));
+        cvTasks.setOnClickListener(v -> startActivity(new Intent(this, TaskManagementActivity.class)));
+        cvAttendance.setOnClickListener(v -> startActivity(new Intent(this, AttendanceActivity.class)));
+        cvRecruitment.setOnClickListener(v -> startActivity(new Intent(this, RecruitmentActivity.class)));
+        cvAttendanceMonitoring.setOnClickListener(v -> startActivity(new Intent(this, AttendanceMonitoringActivity.class)));
+        cvAttendanceRequests.setOnClickListener(v -> startActivity(new Intent(this, ManagerAttendanceRequestsActivity.class)));
 
-        cvTasks.setOnClickListener(v -> {
-            Intent intent = new Intent(this, TaskManagementActivity.class);
-            startActivity(intent);
-        });
-
-        cvAttendance.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ManagerAttendanceRequestsActivity.class);
-            startActivity(intent);
-        });
-
-        cvRecruitment.setOnClickListener(v -> {
-            Intent intent = new Intent(this, RecruitmentActivity.class);
-            startActivity(intent);
-        });
-
-        cvAttendanceMonitoring.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AttendanceMonitoringActivity.class);
-            startActivity(intent);
-        });
+        cvKRA.setOnClickListener(v ->
+                startActivity(new Intent(this, ManagerCombinedKRAActivity.class))
+        );
     }
 
     private void loadUserInfo() {
@@ -98,9 +85,7 @@ public class ManagerDashboardActivity extends AppCompatActivity {
     private void logout() {
         auth.signOut();
         prefs.edit().clear().apply();
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }

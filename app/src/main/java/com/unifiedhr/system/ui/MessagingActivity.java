@@ -95,7 +95,6 @@ public class MessagingActivity extends AppCompatActivity {
                             messageList.add(message);
                         }
                     }
-                    // Sort by timestamp
                     messageList.sort((m1, m2) -> Long.compare(m1.getTimestamp(), m2.getTimestamp()));
                     adapter.notifyDataSetChanged();
                     if (messageList.size() > 0) {

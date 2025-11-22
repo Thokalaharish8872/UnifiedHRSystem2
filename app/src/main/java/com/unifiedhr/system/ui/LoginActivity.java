@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -30,11 +31,14 @@ import com.google.android.material.textfield.TextInputLayout;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
-    private Button btnLogin, btnAdminRegister, btnSuperAdminRegister;
+    private Button btnLogin, btnAdminRegister, btnJobSeekerRegister;
     private ProgressBar progressBar;
+    private TextView tvForgotPassword;
     private FirebaseAuth auth;
     private UserService userService;
     private SharedPreferences prefs;
+    private long backPressedTime;
+    private Toast backToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,21 +54,16 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.btnLogin);
         btnAdminRegister = findViewById(R.id.btnRegister);
-        btnSuperAdminRegister = findViewById(R.id.btnSuperAdminRegister);
+        btnJobSeekerRegister = findViewById(R.id.btnJobSeekerRegister);
         progressBar = findViewById(R.id.progressBar);
+        tvForgotPassword = findViewById(R.id.tvForgotPassword);
 
-        Button btnJobSeekerLogin = findViewById(R.id.btnJobSeekerLogin);
-
-        // Button actions
         btnLogin.setOnClickListener(v -> loginUser());
-        btnAdminRegister.setOnClickListener(v -> showAdminRegisterDialog());
-        btnSuperAdminRegister.setOnClickListener(v -> showSuperAdminDialog());
-        btnJobSeekerLogin.setOnClickListener(v -> showJobSeekerLogin());
+        btnAdminRegister.setOnClickListener(v -> startActivity(new Intent(this, AdminRegistrationActivity.class)));
+        btnJobSeekerRegister.setOnClickListener(v -> askJobSeekerName());
+        tvForgotPassword.setOnClickListener(v -> showForgotPasswordDialog());
     }
 
-    // -------------------------------------------------------
-    // LOGIN FLOW
-    // -------------------------------------------------------
     private void loginUser() {
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
@@ -79,18 +78,15 @@ public class LoginActivity extends AppCompatActivity {
 
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
-
                     progressBar.setVisibility(View.GONE);
                     btnLogin.setEnabled(true);
 
                     if (task.isSuccessful()) {
                         loadUserAndRedirect();
                     } else {
-                        Toast.makeText(
-                                this,
+                        Toast.makeText(this,
                                 "Login failed: " + task.getException().getMessage(),
-                                Toast.LENGTH_SHORT
-                        ).show();
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -99,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         String userId = FirebaseHelper.getInstance().getCurrentUserId();
 
         if (userId == null) {
-            Toast.makeText(this, "User ID not found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "User ID not found after login.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -110,11 +106,11 @@ public class LoginActivity extends AppCompatActivity {
                 User user = snapshot.getValue(User.class);
 
                 if (user == null) {
-                    Toast.makeText(LoginActivity.this, "User not found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "User data not found in database. Please contact support.", Toast.LENGTH_LONG).show();
+                    auth.signOut();
                     return;
                 }
 
-                // Admin approval logic
                 if ("Admin".equals(user.getRole())) {
 
                     if ("pending".equals(user.getLoginStatus())) {
@@ -139,185 +135,24 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError error) {
-                Toast.makeText(LoginActivity.this, "Error loading user", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this,
+                        "Error loading user", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    // -------------------------------------------------------
-    // SUPER ADMIN REGISTRATION (Name + Company in ONE dialog)
-    // -------------------------------------------------------
-    private void showSuperAdminDialog() {
-
-        View view = LayoutInflater.from(this)
-                .inflate(R.layout.dialog_super_admin_register, null);
-
-        TextInputLayout layoutName = view.findViewById(R.id.layoutSuperAdminName);
-        TextInputEditText etName = view.findViewById(R.id.etSuperAdminName);
-
-        TextInputLayout layoutCompany = view.findViewById(R.id.layoutCompanyName);
-        TextInputEditText etCompany = view.findViewById(R.id.etCompanyName);
-
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Super Admin Registration")
-                .setView(view)
-                .setPositiveButton("Continue", null)
-                .setNegativeButton("Cancel", (d, w) -> d.dismiss())
-                .create();
-
-        dialog.setOnShowListener(d -> {
-
-            Button btn = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-
-            btn.setOnClickListener(v -> {
-
-                String name = etName.getText().toString().trim();
-                String company = etCompany.getText().toString().trim();
-
-                if (name.isEmpty()) {
-                    layoutName.setError("Name required");
-                    return;
-                } else layoutName.setError(null);
-
-                if (company.isEmpty()) {
-                    layoutCompany.setError("Company name required");
-                    return;
-                } else layoutCompany.setError(null);
-
-                dialog.dismiss();
-                createSuperAdmin(name, company);
-            });
-        });
-
-        dialog.show();
-    }
-
-    private void createSuperAdmin(String name, String companyName) {
-
-        String email = etEmail.getText().toString().trim();
-        String password = etPassword.getText().toString().trim();
-
-        progressBar.setVisibility(View.VISIBLE);
-
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-
-                    if (!task.isSuccessful()) {
-                        progressBar.setVisibility(View.GONE);
-                        Toast.makeText(this,
-                                "Failed: " + task.getException().getMessage(),
-                                Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    String userId = FirebaseHelper.getInstance().getCurrentUserId();
-
-                    // Create company
-                    String companyId = FirebaseHelper.getInstance()
-                            .getDatabaseReference("companies")
-                            .push()
-                            .getKey();
-
-                    FirebaseHelper.getInstance()
-                            .getDatabaseReference("companies")
-                            .child(companyId)
-                            .child("name")
-                            .setValue(companyName);
-
-                    // Create super admin
-                    User user = new User(userId, email, name, "SuperAdmin", companyId);
-                    user.setLoginStatus("approved");
-
-                    userService.createUser(user, (error, ref) -> {
-
-                        progressBar.setVisibility(View.GONE);
-
-                        if (error == null) {
-                            saveUserAndRedirect(user);
-                            Toast.makeText(this,
-                                    "Super Admin Registered Successfully!",
-                                    Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(this,
-                                    "Failed saving profile",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                });
-    }
-
-    // -------------------------------------------------------
-    // ADMIN REGISTRATION (Name + Company)
-    // -------------------------------------------------------
-    private void showAdminRegisterDialog() {
-
-        View view = LayoutInflater.from(this)
-                .inflate(R.layout.dialog_admin_register, null);
-
-        TextInputLayout layoutName = view.findViewById(R.id.layoutAdminName);
-        TextInputEditText etName = view.findViewById(R.id.etAdminName);
-
-        TextInputLayout layoutCompany = view.findViewById(R.id.layoutCompanyName);
-        TextInputEditText etCompany = view.findViewById(R.id.etCompanyName);
-
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Admin Registration")
-                .setView(view)
-                .setPositiveButton("Continue", null)
-                .setNegativeButton("Cancel", (d, w) -> d.dismiss())
-                .create();
-
-        dialog.setOnShowListener(d -> {
-
-            Button btn = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-
-            btn.setOnClickListener(v -> {
-
-                String name = etName.getText().toString().trim();
-                String company = etCompany.getText().toString().trim();
-
-                if (name.isEmpty()) {
-                    layoutName.setError("Name required");
-                    return;
-                } else layoutName.setError(null);
-
-                if (company.isEmpty()) {
-                    layoutCompany.setError("Company required");
-                    return;
-                } else layoutCompany.setError(null);
-
-                dialog.dismiss();
-                checkCompanyForAdmin(name, company);
-            });
-        });
-
-        dialog.show();
-    }
-
-    private void checkCompanyForAdmin(String name, String companyName) {
-
-        FirebaseHelper.getInstance()
-                .getDatabaseReference("companies")
-                .orderByChild("name")
-                .equalTo(companyName)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-
-                        if (!snapshot.exists()) {
-                            Toast.makeText(LoginActivity.this,
-                                    "Company not found. Ask Super Admin to create company.",
-                                    Toast.LENGTH_LONG).show();
-                            return;
-                        }
-
-                        String companyId = snapshot.getChildren().iterator().next().getKey();
-                        createAdmin(name, companyId);
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {}
-                });
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            finishAffinity();
+            return;
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPressedTime = System.currentTimeMillis();
     }
 
     private void createAdmin(String name, String companyId) {
@@ -340,7 +175,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     String userId = FirebaseHelper.getInstance().getCurrentUserId();
 
-                    // Create admin user with pending status
                     User user = new User(userId, email, name, "Admin", companyId);
                     user.setLoginStatus("pending");
 
@@ -348,13 +182,10 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (error != null) {
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(this,
-                                    "Failed creating user",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Failed creating user", Toast.LENGTH_SHORT).show();
                             return;
                         }
 
-                        // Create admin request under the company
                         String requestId = FirebaseHelper.getInstance()
                                 .getDatabaseReference("companies")
                                 .child(companyId)
@@ -362,7 +193,7 @@ public class LoginActivity extends AppCompatActivity {
                                 .push()
                                 .getKey();
 
-                        AdminLoginRequest request =
+                        AdminLoginRequest req =
                                 new AdminLoginRequest(requestId, userId, email, name);
 
                         FirebaseHelper.getInstance()
@@ -370,84 +201,15 @@ public class LoginActivity extends AppCompatActivity {
                                 .child(companyId)
                                 .child("adminRequests")
                                 .child(requestId)
-                                .setValue(request);
+                                .setValue(req);
 
                         progressBar.setVisibility(View.GONE);
                         Toast.makeText(LoginActivity.this,
-                                "Admin request sent. Super Admin must approve.",
+                                "Admin request sent. Waiting for approval.",
                                 Toast.LENGTH_LONG).show();
 
                         auth.signOut();
                     });
-                });
-    }
-
-    // -------------------------------------------------------
-    // JOB SEEKER LOGIN + REGISTRATION
-    // -------------------------------------------------------
-    private void showJobSeekerLogin() {
-
-        String email = etEmail.getText().toString().trim();
-        String password = etPassword.getText().toString().trim();
-
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this,
-                    "Please fill all fields",
-                    Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        progressBar.setVisibility(View.VISIBLE);
-        btnLogin.setEnabled(false);
-
-        auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-
-                    progressBar.setVisibility(View.GONE);
-                    btnLogin.setEnabled(true);
-
-                    if (task.isSuccessful()) {
-                        checkExistingJobSeeker();
-                    } else {
-                        registerJobSeeker(email, password);
-                    }
-                });
-    }
-
-    private void checkExistingJobSeeker() {
-
-        String userId = FirebaseHelper.getInstance().getCurrentUserId();
-
-        if (userId == null) {
-            Toast.makeText(this,
-                    "User ID not found",
-                    Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        userService.getUser(userId)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-
-                        User user = snapshot.getValue(User.class);
-
-                        if (user != null) {
-                            if ("JobSeeker".equals(user.getRole())) {
-                                saveUserAndRedirect(user);
-                            } else {
-                                Toast.makeText(LoginActivity.this,
-                                        "This is not a Job Seeker account.",
-                                        Toast.LENGTH_SHORT).show();
-                                auth.signOut();
-                            }
-                        } else {
-                            askJobSeekerName();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {}
                 });
     }
 
@@ -456,30 +218,27 @@ public class LoginActivity extends AppCompatActivity {
         View view = LayoutInflater.from(this)
                 .inflate(R.layout.dialog_input_name, null);
 
-        TextInputLayout inputLayout = view.findViewById(R.id.inputLayoutName);
+        TextInputLayout layoutName = view.findViewById(R.id.inputLayoutName);
         TextInputEditText etName = view.findViewById(R.id.etName);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Enter your name")
+                .setTitle("Enter Your Name")
                 .setView(view)
-                .setPositiveButton("Continue", null)
-                .setNegativeButton("Cancel", (d, w) -> d.dismiss())
+                .setPositiveButton("Register", null)
+                .setNegativeButton("Cancel", (dialogInterface, which) -> dialogInterface.dismiss())
                 .create();
 
-        dialog.setOnShowListener(d -> {
-
+        dialog.setOnShowListener(dlg -> {
             Button btn = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
 
             btn.setOnClickListener(v -> {
-
                 String name = etName.getText().toString().trim();
 
                 if (name.isEmpty()) {
-                    inputLayout.setError("Name required");
+                    layoutName.setError("Name required");
                     return;
                 }
 
-                inputLayout.setError(null);
                 dialog.dismiss();
                 createJobSeeker(name);
             });
@@ -488,48 +247,52 @@ public class LoginActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void registerJobSeeker(String email, String password) {
-
-        if (password.length() < 6) {
-            Toast.makeText(this,
-                    "Password must be 6+ characters",
-                    Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        askJobSeekerName();
-    }
-
     private void createJobSeeker(String name) {
 
-        String userId = FirebaseHelper.getInstance().getCurrentUserId();
+        String email = etEmail.getText().toString().trim();
+        String password = etPassword.getText().toString().trim();
 
-        if (userId == null || auth.getCurrentUser() == null) {
-            Toast.makeText(this,
-                    "User not found",
-                    Toast.LENGTH_SHORT).show();
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Enter email & password first", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        String email = auth.getCurrentUser().getEmail();
+        if (password.length() < 6) {
+            Toast.makeText(this, "Password must be 6+ characters", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        User user = new User(userId, email, name, "JobSeeker", "");
+        progressBar.setVisibility(View.VISIBLE);
 
-        userService.createUser(user, (error, ref) -> {
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
 
-            if (error == null) {
-                saveUserAndRedirect(user);
-            } else {
-                Toast.makeText(this,
-                        "Failed to create Job Seeker profile",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+                    if (!task.isSuccessful()) {
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(this,
+                                "Failed: " + task.getException().getMessage(),
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    String userId = FirebaseHelper.getInstance().getCurrentUserId();
+
+                    User user = new User(userId, email, name, "JobSeeker", "");
+
+                    userService.createUser(user, (error, ref) -> {
+                        progressBar.setVisibility(View.GONE);
+
+                        if (error == null) {
+                            saveUserAndRedirect(user);
+                        } else {
+                            Toast.makeText(this,
+                                    "Failed to save profile",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                });
     }
 
-    // -------------------------------------------------------
-    // SAVE + REDIRECT
-    // -------------------------------------------------------
     private void saveUserAndRedirect(User user) {
 
         prefs.edit()
@@ -547,6 +310,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent;
 
         switch (role) {
+
             case "SuperAdmin":
                 intent = new Intent(this, SuperAdminDashboardActivity.class);
                 break;
@@ -568,11 +332,65 @@ public class LoginActivity extends AppCompatActivity {
                 break;
 
             default:
-                Toast.makeText(this, "Unknown role", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Unknown role!", Toast.LENGTH_SHORT).show();
                 return;
         }
 
         startActivity(intent);
         finish();
+    }
+
+    private void showForgotPasswordDialog() {
+
+        View view = LayoutInflater.from(this)
+                .inflate(R.layout.dialog_input_name, null);
+
+        TextInputLayout inputLayout = view.findViewById(R.id.inputLayoutName);
+        inputLayout.setHint("Enter your email");
+
+        TextInputEditText etEmail = view.findViewById(R.id.etName);
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Reset Password")
+                .setView(view)
+                .setPositiveButton("Send Reset Link", null)
+                .setNegativeButton("Cancel", (dialogInterface, which) -> dialogInterface.dismiss())
+                .create();
+
+        dialog.setOnShowListener(dlg -> {
+            Button btn = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+
+            btn.setOnClickListener(v -> {
+
+                String email = etEmail.getText().toString().trim();
+
+                if (email.isEmpty()) {
+                    inputLayout.setError("Email required");
+                    return;
+                }
+
+                sendResetEmail(email);
+                dialog.dismiss();
+            });
+        });
+
+        dialog.show();
+    }
+
+    private void sendResetEmail(String email) {
+
+        FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
+
+                    if (task.isSuccessful()) {
+                        Toast.makeText(this,
+                                "Reset link sent to your email.",
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(this,
+                                "Failed: " + task.getException().getMessage(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

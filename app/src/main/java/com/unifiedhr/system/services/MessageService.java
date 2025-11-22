@@ -19,14 +19,6 @@ public class MessageService {
     public Query getMessagesByJobAndApplicant(String jobId, String applicantId) {
         return messagesRef.orderByChild("jobId").equalTo(jobId);
     }
-
-    public Query getMessagesByApplicant(String applicantId) {
-        return messagesRef.orderByChild("applicantId").equalTo(applicantId);
-    }
-
-    public void markAsRead(String messageId, DatabaseReference.CompletionListener listener) {
-        messagesRef.child(messageId).child("isRead").setValue(true, listener);
-    }
 }
 
 

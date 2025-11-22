@@ -1,258 +1,342 @@
 [
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_login.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_login.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\menu_manager_menu.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\menu\\manager_menu.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_admin_attendance_requests.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_admin_attendance_requests.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_splash.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_update_task_status.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_update_task_status.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_login.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/font_actor.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/font/actor.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_leave_request.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_leave_request.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_job_detail.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_job_detail.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\drawable\\ic_add.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_admin_register.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_admin_register.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_attendance_monitoring_redesigned.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_attendance_monitoring_redesigned.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_message_sent.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_message_sent.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_daily_report.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_daily_report.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_task_management.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_task_management.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_list_group.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\list_group.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_kra.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_kra.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_manager_kra_home.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_manager_kra_home.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_attendance_request.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_attendance_request.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\menu_jobseeker_menu.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\menu\\jobseeker_menu.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_create_job.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_create_job.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_team.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_team.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_manager_your_kra.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_manager_your_kra.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_comment_input.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_comment_input.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_edit_kra.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_edit_kra.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/menu_manager_menu.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/menu/manager_menu.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_feedback.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_feedback.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_recruitment.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_recruitment.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_create_task.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_create_task.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_leave_request.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_leave_request.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_jobseeker_job.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_jobseeker_job.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_manager_dashboard.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_manager_dashboard.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\xml_file_provider_paths.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\xml\\file_provider_paths.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/drawable_company_icon.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/drawable/company_icon.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\drawable_company_icon.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\drawable\\company_icon.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_admin_login_request.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_admin_login_request.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_manager_assigned_kra.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_manager_assigned_kra.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/menu_jobseeker_menu.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/menu/jobseeker_menu.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_job.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_job.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_admin_registration.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_admin_registration.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_daily_report.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_daily_report.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_kra_list.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_kra_list.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_performance.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_performance.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_list_item.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\list_item.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_create_company.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_create_company.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_kra_form.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_kra_form.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_jobseeker_job.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_jobseeker_job.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_expense.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_expense.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/menu_employee_menu.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/menu/employee_menu.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_message_received.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_message_received.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/xml_file_provider_paths.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/xml/file_provider_paths.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_employee_feedback.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_employee_feedback.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_applicants.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_applicants.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_admin_login_request.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_admin_login_request.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_create_job.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_create_job.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_super_admin_dashboard.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_super_admin_dashboard.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_create_task.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_create_task.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\font_actor.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\font\\actor.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_task.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_task.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_employee_attendance_stats.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_employee_attendance_stats.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_apply_job.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_apply_job.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_add_manager.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_add_manager.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_manager_management.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_manager_management.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\drawable_ic_logout.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\drawable\\ic_logout.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_employee_attendance_stats.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_employee_attendance_stats.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_manager_attendance_requests.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_manager_attendance_requests.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_kra.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_kra.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_task_management.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_task_management.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_super_admin_dashboard.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_super_admin_dashboard.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_job_detail.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_job_detail.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_input_name.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_input_name.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_job.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_job.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_attendance_history.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_attendance_history.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_update_task_status.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_update_task_status.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_super_admin_register.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_super_admin_register.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\menu_super_admin_menu.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\menu\\super_admin_menu.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_attendance.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_attendance.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_team.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_team.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/font_acme.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/font/acme.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_task.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_task.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_expense.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_expense.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_manager_combined_kra.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_manager_combined_kra.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_attendance.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_attendance.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_admin_login_requests.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_admin_login_requests.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_recruitment.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_recruitment.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\font_acme.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\font\\acme.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_documents.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_documents.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_attendance.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_attendance.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/font_alkatra_medium.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/font/alkatra_medium.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_apply_job.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_apply_job.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_employee_dashboard.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_employee_dashboard.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_update_kra_progress.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_update_kra_progress.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/menu_admin_menu.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/menu/admin_menu.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_kra.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_kra.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_manager_attendance_requests.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_manager_attendance_requests.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_applicants.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_applicants.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_splash.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_splash.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\menu_employee_menu.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\menu\\employee_menu.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_add_team_member.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_add_team_member.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_admin_login_requests.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_admin_login_requests.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_dashboard.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_dashboard.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_document.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_document.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_office_location.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_office_location.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_employee_dashboard.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_employee_dashboard.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_applicant.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_applicant.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_create_kra.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_create_kra.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_messaging.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_messaging.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\font_alkatra_medium.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\font\\alkatra_medium.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_message_received.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_message_received.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_attendance.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_attendance.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_admin_request.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_admin_request.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_item_document.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/item_document.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_documents.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_documents.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_team_management.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_team_management.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_attendance_history.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_attendance_history.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_jobseeker_dashboard.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_jobseeker_dashboard.xml"
+        "merged": "com.unifiedhr.system.app-merged_res-46:/layout_item_admin_login_request.xml.flat",
+        "source": "com.unifiedhr.system.app-main-48:/layout/item_admin_login_request.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_admin_dashboard.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_admin_dashboard.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_messaging.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_messaging.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_dialog_location_input.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/dialog_location_input.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_input_name.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_input_name.xml"
     },
     {
-        "merged": "com.unifiedhr.system.app-merged_res-40:/layout_activity_attendance_monitoring.xml.flat",
-        "source": "com.unifiedhr.system.app-main-42:/layout/activity_attendance_monitoring.xml"
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\menu_admin_menu.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\menu\\admin_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_team_management.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_team_management.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_team_management_redesigned.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_team_management_redesigned.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_admin_dashboard.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_admin_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_feedback.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_feedback.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_applicant.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_applicant.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_jobseeker_dashboard.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_jobseeker_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_manager_management.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_manager_management.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_manager_dashboard.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_manager_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_add_team_member.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_add_team_member.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_dashboard.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_attendance_request.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_attendance_request.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\drawable_ic_menu.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\drawable\\ic_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_admin_attendance_requests.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_admin_attendance_requests.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\drawable_dialog_full_width_bg.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\drawable\\dialog_full_width_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_super_admin_register.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_super_admin_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_admin_register.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_admin_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_attendance_monitoring.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_attendance_monitoring.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_activity_kra.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\activity_kra.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_item_message_sent.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\item_message_sent.xml"
+    },
+    {
+        "merged": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-merged_res-46:\\layout_dialog_create_company.xml.flat",
+        "source": "C:\\Users\\thoka\\.gradle\\daemon\\8.5\\com.unifiedhr.system.app-main-48:\\layout\\dialog_create_company.xml"
     }
 ]

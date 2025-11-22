@@ -7,16 +7,8 @@ public class DailyReport {
     private String workDone;
     private String challenges;
     private String nextDayPlan;
-    private long timestamp;
 
     public DailyReport() {
-    }
-
-    public DailyReport(String reportId, String employeeId, String date) {
-        this.reportId = reportId;
-        this.employeeId = employeeId;
-        this.date = date;
-        this.timestamp = System.currentTimeMillis();
     }
 
     public String getReportId() { return reportId; }

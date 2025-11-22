@@ -2,68 +2,67 @@
 
 A comprehensive Android application for Small & Medium Businesses (SMBs) to manage all HR operations in one unified system.
 
+## Table of Contents
+
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Setup Instructions](#setup-instructions)
+- [Usage Flow](#usage-flow)
+- [Database Structure](#database-structure)
+- [Permissions Required](#permissions-required)
+- [License](#intention-of-the-application)
+
 ## Features
 
+The application is divided into several modules to cover all aspects of the HR lifecycle:
+
 ### 1. Onboarding Module
-- Admin creates company profile
-- Admin adds managers
-- Managers add team members
-- Automatic employee ID generation
-- Role-based access control
+- Admin creates a company profile.
+- Admin onboards managers.
+- Managers add their respective team members.
+- Employee IDs are generated automatically upon creation.
+- Role-based access control ensures users only see what they need to.
 
 ### 2. Attendance & Daily Tracking
-- Multiple attendance methods:
-  - GPS-based location tracking
-  - QR code scanning (office-based)
-  - Web-based check-in
-- Employee dashboard showing:
-  - KRA (Key Result Areas)
-  - Assigned tasks with deadlines
-  - Daily progress reports
-- End-of-day progress reporting
+- **Multiple Attendance Methods**: GPS-based location, QR code scanning for office-based staff, and web-based check-in.
+- **Employee Dashboard**: A central hub for employees to view their Key Result Areas (KRAs), assigned tasks with deadlines, and daily progress reports.
+- **End-of-Day Reporting**: A simple flow for employees to submit their daily progress.
 
 ### 3. Work Allotment System
-- Managers create and assign tasks
-- Task status tracking (Pending, In Progress, Completed)
-- Deadline management
-- Manager dashboard with task overview
-- Auto-reminders and nudges
+- Managers can create and assign tasks to their team members.
+- Real-time task status tracking (Pending, In Progress, Completed).
+- Deadline management for all tasks.
+- Manager-specific dashboard with an overview of all team tasks.
+- Automatic reminders and nudges for upcoming deadlines.
 
 ### 4. Performance Management
-- Monthly auto-generated scorecards:
-  - Attendance percentage
-  - Task completion percentage
-  - Manager ratings (1-5 scale)
-- Admin dashboard with:
-  - Leaderboards
-  - Performance graphs
-  - Attrition risk flags
+- Monthly auto-generated scorecards based on:
+  - Attendance Percentage
+  - Task Completion Rate
+  - Manager Ratings (on a 1-5 scale)
+- Admin dashboard with leaderboards, performance graphs, and attrition risk flags.
 
 ### 5. Recruitment Module
-- Recruiter mode toggle (Admin/Manager)
-- Job posting with unique job links
-- Applicant pipeline management:
-  - New → Shortlisted → Interview → Hired → Rejected
-- One-click "Convert to Employee" functionality
-- Automatic employee ID generation for hired candidates
+- **Recruiter Mode**: Admins and Managers can be granted recruiter permissions to post jobs.
+- **Job Postings**: Create job openings with unique, shareable links.
+- **Applicant Pipeline**: Manage applicants through a simple pipeline (New → Shortlisted → Interview → Hired → Rejected).
+- **One-Click Onboarding**: Convert a `Hired` applicant into an employee profile with a single click, automatically generating their credentials.
 
 ### 6. Other HR Features
-- **Leave Management**: Request and approval workflow
-- **Expense Reimbursement**: Submit and track expenses
-- **Documents Vault**: Digital storage for ID proofs, certificates (Google Drive integration ready)
-- **Exit Flow**: Notice period and exit management
-- **Role-based Permissions**: Admin, Manager, Employee roles
-- **Audit Logs**: Track all system activities
+- **Leave Management**: A complete workflow for leave requests and approvals.
+- **Expense Reimbursement**: A system for employees to submit and track expenses.
+- **Documents Vault**: Digital storage for ID proofs, certificates, and other documents.
+- **Exit Flow**: Formal management of the notice period and exit process.
+- **Audit Logs**: Track all major activities within the system for accountability.
 
 ## Technology Stack
 
 - **Language**: Java
-- **UI**: XML layouts
+- **UI**: XML
 - **Backend**: Firebase
   - Firebase Authentication
   - Firebase Realtime Database
-  - Firebase Storage
-  - Firebase Firestore
 
 ## Project Structure
 
@@ -71,145 +70,120 @@ A comprehensive Android application for Small & Medium Businesses (SMBs) to mana
 app/
 ├── src/main/
 │   ├── java/com/unifiedhr/system/
-│   │   ├── models/          # Data models
-│   │   ├── services/        # Firebase service classes
-│   │   ├── ui/              # Activities
-│   │   │   └── fragments/   # Dialog fragments
-│   │   ├── adapters/        # RecyclerView adapters
-│   │   └── utils/           # Utility classes
+│   │   ├── models/          # Data Models (POJOs)
+│   │   ├── services/        # Firebase Service Classes
+│   │   ├── ui/              # Activities & Fragments
+│   │   ├── adapters/        # RecyclerView Adapters
+│   │   └── utils/           # Utility and Helper Classes
 │   ├── res/
-│   │   ├── layout/          # XML layouts
-│   │   ├── menu/           # Menu resources
-│   │   └── values/         # Strings, colors, themes
+│   │   ├── layout/          # XML Layouts
+│   │   ├── menu/            # Menu XML Files
+│   │   └── values/          # Strings, Colors, Styles
 │   └── AndroidManifest.xml
 └── build.gradle
 ```
 
 ## Setup Instructions
 
-1. **Firebase Setup**:
-   - Create a Firebase project at https://console.firebase.google.com
-   - Download `google-services.json` and place it in `app/` directory
-   - Enable Firebase Authentication (Email/Password)
-   - Enable Firebase Realtime Database
-   - Enable Firebase Storage
+1.  **Firebase Setup**:
+    -   Create a new Firebase project at [console.firebase.google.com](https://console.firebase.google.com).
+    -   In your project, create an Android app with the package name `com.unifiedhr.system`.
+    -   Download the `google-services.json` file and place it in the `app/` directory of your project.
+    -   Enable **Email/Password** sign-in in the Firebase Authentication section.
+    -   Enable the **Realtime Database**.
+    -   Enable **Firebase Storage**.
 
-2. **Build Configuration**:
-   - Update `app/google-services.json` with your Firebase project details
-   - Sync Gradle files
-   - Build and run the application
+2.  **Build Configuration**:
+    -   Open the project in Android Studio.
+    -   Sync the Gradle files to download all dependencies.
+    -   Build and run the application on an emulator or physical device.
 
-3. **Initial Setup**:
-   - First user should register as Admin
-   - Admin creates company profile
-   - Admin adds managers
-   - Managers add team members
+3.  **Initial Setup**:
+    -   The first user to register must be the **Super Admin**.
+    -   The Super Admin can then approve registration requests from **Admins**.
+    -   Admins create a company profile and add **Managers**.
+    -   Managers add their **Employees**.
 
 ## Usage Flow
 
-### Admin Flow
-1. Login as Admin
-2. Create company profile
-3. Add managers
-4. View all employees
-5. Monitor performance and analytics
-6. Manage recruitment
+#### Admin Flow
+1.  Login as an Admin.
+2.  Manage company profile and settings.
+3.  Add and manage managers.
+4.  View all employees and teams in the organization.
+5.  Monitor company-wide performance and analytics.
+6.  Oversee recruitment.
 
-### Manager Flow
-1. Login as Manager
-2. View team members
-3. Create and assign tasks
-4. Monitor team attendance
-5. Review performance
-6. Post jobs (if recruiter mode enabled)
+#### Manager Flow
+1.  Login as a Manager.
+2.  View and manage direct team members.
+3.  Create, assign, and track tasks.
+4.  Approve/reject attendance and leave requests from team members.
+5.  Review team performance.
 
-### Employee Flow
-1. Login as Employee
-2. Mark attendance (GPS/QR/Web)
-3. View assigned tasks and KRAs
-4. Submit daily progress reports
-5. Apply for leave
-6. Submit expense reimbursements
-7. Access documents
+#### Employee Flow
+1.  Login as an Employee.
+2.  Mark daily attendance.
+3.  View assigned tasks and KRAs.
+4.  Submit daily progress reports.
+5.  Apply for leave and submit expenses.
 
 ## Database Structure
 
 ### Firebase Realtime Database Schema
 
-```
+```json
 {
   "users": {
     "userId": {
-      "email", "name", "role", "companyId", 
-      "employeeId", "managerId", "department", 
-      "isRecruiter", "createdAt"
+      "email": "String",
+      "name": "String",
+      "role": "String",
+      "companyId": "String",
+      "employeeId": "String",
+      "managerId": "String",
+      "department": "String",
+      "isRecruiter": "boolean",
+      "createdAt": "long"
     }
   },
   "companies": {
     "companyId": {
-      "companyName", "adminId", "address", 
-      "employeeCount", "createdAt"
+      "companyName": "String",
+      "adminId": "String",
+      "address": "String",
+      "employeeCount": "int",
+      "createdAt": "long"
     }
   },
   "attendance": {
     "attendanceId": {
-      "employeeId", "date", "checkInTime", 
-      "checkOutTime", "location", "type"
+      "employeeId": "String",
+      "date": "String",
+      "checkInTime": "long",
+      "checkOutTime": "long",
+      "status": "String",
+      "reason": "String"
     }
   },
   "tasks": {
     "taskId": {
-      "title", "description", "assignedTo", 
-      "assignedBy", "deadline", "status", "priority"
+      "title": "String",
+      "description": "String",
+      "assignedTo": "String",
+      "assignedBy": "String",
+      "deadline": "String",
+      "status": "String"
     }
   },
   "jobs": {
     "jobId": {
-      "companyId", "title", "description", 
-      "jobLink", "status", "createdBy"
-    }
-  },
-  "applicants": {
-    "applicantId": {
-      "jobId", "name", "email", "resumeUrl", 
-      "status", "appliedAt"
-    }
-  },
-  "performance": {
-    "performanceId": {
-      "employeeId", "month", "year", 
-      "attendancePercentage", "completionPercentage", 
-      "rating", "managerNotes"
-    }
-  },
-  "leaveRequests": {
-    "leaveId": {
-      "employeeId", "leaveType", "startDate", 
-      "endDate", "reason", "status", "approvedBy"
-    }
-  },
-  "expenses": {
-    "expenseId": {
-      "employeeId", "expenseType", "amount", 
-      "description", "receiptUrl", "status", "approvedBy"
-    }
-  },
-  "documents": {
-    "documentId": {
-      "employeeId", "documentType", "documentName", 
-      "documentUrl", "googleDriveId"
-    }
-  },
-  "dailyReports": {
-    "reportId": {
-      "employeeId", "date", "workDone", 
-      "challenges", "nextDayPlan"
-    }
-  },
-  "kras": {
-    "kraId": {
-      "employeeId", "title", "description", 
-      "target", "currentProgress", "deadline"
+      "companyId": "String",
+      "companyName": "String",
+      "title": "String",
+      "description": "String",
+      "status": "String",
+      "createdBy": "String"
     }
   }
 }
@@ -217,39 +191,14 @@ app/
 
 ## Permissions Required
 
-- `INTERNET` - Network access
-- `ACCESS_NETWORK_STATE` - Check network connectivity
-- `ACCESS_FINE_LOCATION` - GPS-based attendance
-- `ACCESS_COARSE_LOCATION` - Location services
-- `CAMERA` - QR code scanning
-- `READ_EXTERNAL_STORAGE` - Document access
-- `WRITE_EXTERNAL_STORAGE` - Document storage
+-   `INTERNET`
+-   `ACCESS_NETWORK_STATE`
+-   `ACCESS_FINE_LOCATION`
+-   `ACCESS_COARSE_LOCATION`
+-   `CAMERA`
+-   `READ_EXTERNAL_STORAGE`
+-   `WRITE_EXTERNAL_STORAGE`
 
-## Future Enhancements
+## intention of the application
 
-- Push notifications for task reminders
-- Advanced analytics and reporting
-- Integration with payroll systems
-- Mobile app for iOS
-- Web dashboard
-- API for third-party integrations
-- Advanced document management with Google Drive API
-- Biometric authentication
-- Offline mode support
-
-## License
-
-This project is proprietary software for SMB HR management.
-
-## Support
-
-For issues and feature requests, please contact the development team.
-
-
-
-
-
-
-
-
-
+This project is proprietary software intended for HR management.

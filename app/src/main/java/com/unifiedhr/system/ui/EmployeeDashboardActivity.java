@@ -6,16 +6,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.unifiedhr.system.R;
 import com.unifiedhr.system.utils.FirebaseHelper;
 
 public class EmployeeDashboardActivity extends AppCompatActivity {
+
     private TextView tvWelcome, tvEmployeeId;
-    private CardView cvAttendance, cvTasks, cvKRA, cvDailyReport, cvLeave, cvExpenses, cvDocuments;
+    private CardView cvAttendance, cvTasks, cvKRA, cvDailyReport, cvFeedback;
     private SharedPreferences prefs;
     private FirebaseAuth auth;
 
@@ -27,12 +30,8 @@ public class EmployeeDashboardActivity extends AppCompatActivity {
         prefs = getSharedPreferences("UnifiedHR", MODE_PRIVATE);
         auth = FirebaseHelper.getInstance().getAuth();
 
-        // Setup toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        }
 
         initViews();
         setupClickListeners();
@@ -42,43 +41,36 @@ public class EmployeeDashboardActivity extends AppCompatActivity {
     private void initViews() {
         tvWelcome = findViewById(R.id.tvWelcome);
         tvEmployeeId = findViewById(R.id.tvEmployeeId);
+
         cvAttendance = findViewById(R.id.cvAttendance);
         cvTasks = findViewById(R.id.cvTasks);
         cvKRA = findViewById(R.id.cvKRA);
         cvDailyReport = findViewById(R.id.cvDailyReport);
-        cvLeave = findViewById(R.id.cvLeave);
+        cvFeedback = findViewById(R.id.cvFeedback);
     }
 
     private void setupClickListeners() {
-        cvAttendance.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AttendanceActivity.class);
-            startActivity(intent);
-        });
 
-        cvTasks.setOnClickListener(v -> {
-            Intent intent = new Intent(this, TaskManagementActivity.class);
-            startActivity(intent);
-        });
+        cvAttendance.setOnClickListener(v ->
+                startActivity(new Intent(this, AttendanceActivity.class)));
 
-        cvKRA.setOnClickListener(v -> {
-            Intent intent = new Intent(this, KRAActivity.class);
-            startActivity(intent);
-        });
+        cvTasks.setOnClickListener(v ->
+                startActivity(new Intent(this, TaskManagementActivity.class)));
 
-        cvDailyReport.setOnClickListener(v -> {
-            Intent intent = new Intent(this, DailyReportActivity.class);
-            startActivity(intent);
-        });
+        cvKRA.setOnClickListener(v ->
+                startActivity(new Intent(this, KRAListActivity.class)));
 
-        cvLeave.setOnClickListener(v -> {
-            Intent intent = new Intent(this, LeaveRequestActivity.class);
-            startActivity(intent);
-        });
+        cvDailyReport.setOnClickListener(v ->
+                startActivity(new Intent(this, DailyReportActivity.class)));
+
+        cvFeedback.setOnClickListener(v ->
+                startActivity(new Intent(this, EmployeeFeedbackActivity.class)));
     }
 
     private void loadUserInfo() {
         String name = prefs.getString("userName", "Employee");
         String employeeId = prefs.getString("employeeId", "");
+
         tvWelcome.setText("Welcome, " + name);
         tvEmployeeId.setText("Employee ID: " + employeeId);
     }
@@ -101,12 +93,7 @@ public class EmployeeDashboardActivity extends AppCompatActivity {
     private void logout() {
         auth.signOut();
         prefs.edit().clear().apply();
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }
-
-
-

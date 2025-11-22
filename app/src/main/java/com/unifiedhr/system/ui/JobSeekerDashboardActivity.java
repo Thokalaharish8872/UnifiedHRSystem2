@@ -40,7 +40,6 @@ public class JobSeekerDashboardActivity extends AppCompatActivity {
         prefs = getSharedPreferences("UnifiedHR", MODE_PRIVATE);
         auth = FirebaseHelper.getInstance().getAuth();
 
-        // Setup toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -69,7 +68,6 @@ public class JobSeekerDashboardActivity extends AppCompatActivity {
     }
 
     private void loadAllJobs() {
-        // Load all active jobs from all companies
         recruitmentService.getAllActiveJobs().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {

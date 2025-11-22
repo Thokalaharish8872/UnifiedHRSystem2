@@ -45,7 +45,6 @@ public class ApplicantsActivity extends AppCompatActivity {
             return;
         }
 
-        // Setup toolbar with back button
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {

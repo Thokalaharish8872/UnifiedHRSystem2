@@ -1,11 +1,8 @@
 package com.unifiedhr.system.models;
 
 public class EmployeeAttendanceStats {
-    private String employeeId;
-    private String employeeName;
-    private int daysPresentThisWeek;
-    private int daysPresentThisMonth;
-    private int daysPresentThisYear;
+    private String employeeId, employeeName;
+    private int daysPresentThisWeek, daysPresentThisMonth, daysPresentThisYear;
 
     public EmployeeAttendanceStats(String employeeId, String employeeName) {
         this.employeeId = employeeId;

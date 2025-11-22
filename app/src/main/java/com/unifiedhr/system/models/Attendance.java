@@ -1,39 +1,18 @@
 package com.unifiedhr.system.models;
 
 public class Attendance {
-    public static final String TYPE_LEAVE = "leave";
-    public static final String TYPE_PRESENT = "present";
 
-    public static final String STATUS_PENDING_MANAGER = "pending_manager";
-    public static final String STATUS_PENDING_ADMIN = "pending_admin";
-    public static final String STATUS_MANAGER_APPROVED = "manager_approved";
-    public static final String STATUS_MANAGER_REJECTED = "manager_rejected";
-    public static final String STATUS_ADMIN_APPROVED = "admin_approved";
-    public static final String STATUS_ADMIN_REJECTED = "admin_rejected";
+    public static final String STATUS_PENDING = "pending";
+    public static final String STATUS_APPROVED_MANAGER = "approved_by_manager";
+    public static final String STATUS_APPROVED_ADMIN = "approved_by_admin";
 
-    private String attendanceId;
-    private String employeeId;
-    private String date;
-    private String status;
-    private String requestType;
-    private String reason;
-    private long requestedAt;
-    private String managerId;
-    private String managerComment;
-    private long managerDecisionAt;
-    private String adminId;
-    private String adminComment;
-    private long adminDecisionAt;
+    public static final String STATUS_REJECTED_MANAGER = "rejected_by_manager";
+    public static final String STATUS_REJECTED_ADMIN = "rejected_by_admin";
 
-    public Attendance() {
-        // Default constructor required for calls to DataSnapshot.getValue(Attendance.class)
-    }
+    private String attendanceId, employeeId, date, status, requestType, reason,adminId, companyId, managerId;
+    private long requestedAt, managerDecisionAt, adminDecisionAt;
 
-    public Attendance(String employeeId, String date, String status) {
-        this.employeeId = employeeId;
-        this.date = date;
-        this.status = status;
-    }
+    public Attendance() {}
 
     public String getAttendanceId() {
         return attendanceId;
@@ -83,12 +62,16 @@ public class Attendance {
         this.reason = reason;
     }
 
-    public long getRequestedAt() {
-        return requestedAt;
-    }
-
     public void setRequestedAt(long requestedAt) {
         this.requestedAt = requestedAt;
+    }
+    
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
     }
 
     public String getManagerId() {
@@ -97,14 +80,6 @@ public class Attendance {
 
     public void setManagerId(String managerId) {
         this.managerId = managerId;
-    }
-
-    public String getManagerComment() {
-        return managerComment;
-    }
-
-    public void setManagerComment(String managerComment) {
-        this.managerComment = managerComment;
     }
 
     public long getManagerDecisionAt() {
@@ -122,15 +97,6 @@ public class Attendance {
     public void setAdminId(String adminId) {
         this.adminId = adminId;
     }
-
-    public String getAdminComment() {
-        return adminComment;
-    }
-
-    public void setAdminComment(String adminComment) {
-        this.adminComment = adminComment;
-    }
-
     public long getAdminDecisionAt() {
         return adminDecisionAt;
     }
